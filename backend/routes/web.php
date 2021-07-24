@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top/index');
 });
+
+route::get('/html/index', 'HtmlController@show')->name('html.show');
