@@ -1,2 +1,3 @@
-require('./html');
-require('./nav');
+import './bootstrap';
+import './nav';
+import './html';
