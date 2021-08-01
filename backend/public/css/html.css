@@ -1,9 +1,10 @@
 .word-list {
     background-color: #001e43;
     width: 230px;
-    height: 910px;
+    height: 700px;
     overflow: scroll;
     margin-top: 80px;
+    border: 10px solid;
 }
 
 .word-select {
@@ -18,7 +19,6 @@
     line-height: 50px;
     text-align: center;
 }
-
 
 .main-word-area {
     background-color: #fff;
@@ -46,6 +46,13 @@ color: black;
 .word-mean p {
     text-align: center;
     padding: 15px 0;
+}
+
+.number {
+    font-size: 10px;
+    width: 18px;
+    color: #001e43;
+    float: left;
 }
 
 #txt-hide{
