@@ -388,6 +388,8 @@ function WordClic0() {
     $("#txt-hide").slideUp(1);
     $(".prg-more").removeClass("on-click");
     $("#prg-hide").slideUp(1);
+    $(".prg-example").removeClass("on-click");
+    $("#example-hide").slideUp(1);
   });
 
   // 意味を見るを押した処理
@@ -399,6 +401,11 @@ function WordClic0() {
   $(".prg-more").on("click", function () {
     $(".prg-more").toggleClass("on-click");
     $("#prg-hide").slideToggle(1);
+  });
+  //例を見るを押した時
+  $(".prg-example").on("click", function () {
+    $(".prg-example").toggleClass("on-click");
+    $("#example-hide").slideToggle(1);
   });
 
     // var button0 = document.getElementById('wordNumber1');
