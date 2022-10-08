@@ -11,4 +11,9 @@ class HtmlWord extends Model
         'html_HowToUse',
         'html_example'
     ];
+
+    public static $rules = array(
+        'html_meaning' => 'required',
+        'html_HowToUse' => 'required',
+        );
 }
