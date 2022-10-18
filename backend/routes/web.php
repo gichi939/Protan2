@@ -22,3 +22,4 @@ route::get('/html/index', 'HtmlController@show')->name('html.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

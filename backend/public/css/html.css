@@ -7,17 +7,27 @@
     border: 10px solid;
 }
 
+.word-list::-webkit-scrollbar {
+    display: none;
+}
+
 .word-select {
     background-color: #fff;
     width: 215px;
     height: 50px;
-    margin: 10px auto;
+    margin-bottom: 10px;
     list-style: none;
 }
 
 .word {
     line-height: 50px;
     text-align: center;
+}
+
+.word-small {
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
 }
 
 .main-word-area {
@@ -28,15 +38,21 @@
     border: solid;
 }
 
+.title-name {
+    margin-top: 20px;
+    font-size: 10rem;
+}
+
+.title-name-small {
+    margin-top: 20px;
+    font-size: 4.5rem;
+}
 .main-word {
 line-height: 255px;
 text-align: center;
 color: black;
 }
 
-.main-word p {
-    font-size: 10rem;
-}
 
 .word-mean {
     background-color: cornsilk;
@@ -57,18 +73,38 @@ color: black;
 
 #txt-hide{
     display: none;
+    text-align: center;
 }
 
 #prg-hide{
     display: none;
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+}
+
+#example-hide{
+    display: none;
+    background-color: rgb(54, 69, 73);
 }
 
 p.more {
+    background-color: #001e43;
+    color: #fff;
     transition: .1s;
     -erbkit-transition: .1s;
 }
 
 p.prg-more {
+    background-color: #001e43;
+    color: #fff;
+    transition: .1s;
+    -erbkit-transition: .1s;
+}
+
+p.prg-example {
+    background-color: #001e43;
+    color: #fff;
     transition: .1s;
     -erbkit-transition: .1s;
 }
@@ -91,4 +127,22 @@ p.prg-more::after {
 
 p.prg-more.on-click::after{
     content: "閉じる";
+}
+
+p.prg-example::after {
+    content: "例を見る";
+    transition: .1s;
+    -erbkit-transition: .1s;
+}
+
+p.prg-example.on-click::after{
+    content: "閉じる";
+}
+pre code {
+    color: rgb(227, 227, 227);
+}
+
+.code-block {
+    color: rgb(227, 227, 227);
+    background-color: rgb(54, 69, 73);
 }

@@ -8,11 +8,6 @@
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Bootstrap読み込み -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -25,15 +20,8 @@
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/html.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css">
-    @yield('styles')
+    <link rel="stylesheet" href="{{ asset('css/management.css') }}">
 
-    <!-- jQuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>@yield('title')</title>
 </head>
 
@@ -43,7 +31,7 @@
             <div class="row">
 
                 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm col-12">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/management') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
@@ -52,32 +40,18 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="gnavi">
                             <li>
-                                <a href="">
-                                    cotegory
-                                </a>
+                                <a href="/management/html">HTML</a>
                             </li>
-
                             <li>
-                                <a href="#">検索</a>
+                                <a href="/management/css">CSS</a>
                             </li>
-
-
+                            <li>
+                                <a href="/management/list/htmlList">HTMLの一覧</a>
+                            </li>
+                            <li>
+                                <a href="/management/list/cssList">CSSの一覧</a>
+                            </li>
                         </ul>
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <div class="openbtn1"><span></span><span></span><span></span></div>
-                            <nav id="g-nav">
-                                <ul id="g-ul">
-                                    <li><a href="#">Top</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Service</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </nav>
-                            <div class="circle-bg"></div>
-                            <!-- Authentication Links -->
-                        </ul>
-
                     </div>
                 </nav>
             </div>
