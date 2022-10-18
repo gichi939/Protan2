@@ -16,12 +16,18 @@
         <!-- left side -->
         <div class="word-list small-3 medium-4 large-3 columns">
             @for ($i = 1; $i <= count($words); $i++) 
-            <div class="word-select">
                 @php
-                $word = $words[$i-1];
+                $word = $words[$i-1][0];
                 @endphp
-                <li class="word" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $words[$i-1][0] }}</li>
+            <div class="word-select">
+                @if(mb_strlen($word) < 19)
+                <li class="word" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $word }}</li>
+                @else
+                <li class="word-small" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $word }}</li>
+                @endif
+
             </div>
+
 
             @endfor
         </div>
@@ -29,10 +35,10 @@
         <!-- center -->
         <div class="main-word-area offset-1 col-8">
             <div class="main-word">
-                <p id="edit_area">html</p>
+                <p class=title-name id="edit_area">html</p>
             </div>
         
-            <div class="col-12">  
+            <div class="col-12">
             
                 <div class="word-mean">
                     <p id="more" class="more"></p>
@@ -56,10 +62,12 @@
         
     <script>
         function menuButton(element, num) {
+            window.words = {};
+            window.words.name = @json($words)[num - 1][0];
 
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1][0];
+            document.getElementById('edit_area_small').innerHTML = @json($words)[num - 1][0];
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1][1];
-
         }
     </script>
 

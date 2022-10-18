@@ -16,3 +16,15 @@
     $(".prg-more").toggleClass("on-click");
     $("#prg-hide").slideToggle(1);
   });
+
+  $(".word-select").on("click", function () {
+    if ((words.name.length) > 12) {
+      // if ($("#edit_area").length) {
+        $('#edit_area').addClass('title-name-small');
+      } else {
+        $('#edit_area').removeClass('title-name-small');
+      
+      }
+  });
+
+

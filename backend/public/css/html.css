@@ -7,6 +7,10 @@
     border: 10px solid;
 }
 
+.word-list::-webkit-scrollbar {
+    display: none;
+}
+
 .word-select {
     background-color: #fff;
     width: 215px;
@@ -20,6 +24,12 @@
     text-align: center;
 }
 
+.word-small {
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+}
+
 .main-word-area {
     background-color: #fff;
     width: 300px;
@@ -28,19 +38,21 @@
     border: solid;
 }
 
-#edit_area {
+.title-name {
     margin-top: 20px;
+    font-size: 10rem;
 }
 
+.title-name-small {
+    margin-top: 20px;
+    font-size: 4.5rem;
+}
 .main-word {
 line-height: 255px;
 text-align: center;
 color: black;
 }
 
-.main-word p {
-    font-size: 10rem;
-}
 
 .word-mean {
     background-color: cornsilk;
