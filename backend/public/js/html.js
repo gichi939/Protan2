@@ -99,6 +99,12 @@ $(".word").on("click", function () {
   $("#txt-hide").slideUp(1);
   $(".prg-more").removeClass("on-click");
   $("#prg-hide").slideUp(1);
+});
+$(".word-small").on("click", function () {
+  $(".more").removeClass("on-click");
+  $("#txt-hide").slideUp(1);
+  $(".prg-more").removeClass("on-click");
+  $("#prg-hide").slideUp(1);
 }); // 意味を見るを押した処理
 
 $(".more").on("click", function () {

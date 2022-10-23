@@ -66,8 +66,8 @@
             window.words.name = @json($words)[num - 1][0];
 
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1][0];
-            document.getElementById('edit_area_small').innerHTML = @json($words)[num - 1][0];
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1][1];
+            document.getElementById('prg-hide').innerHTML = @json($words)[num - 1][2];
         }
     </script>
 
