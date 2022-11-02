@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/html.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css">
     @yield('styles')
 
@@ -32,8 +31,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
-
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    {{-- fontawesomeの読み込み --}}
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>@yield('title')</title>
 </head>
 
@@ -69,8 +68,8 @@
                             <nav id="g-nav">
                                 <ul id="g-ul">
                                     <li><a href="#">Top</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Service</a></li>
+                                    <li><a href="/login">ログイン</a></li>
+                                    <li><a href="{{route('mypage.show')}}">マイページ</a></li>
                                     <li><a href="#">Contact</a></li>
                                 </ul>
                             </nav>

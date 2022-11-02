@@ -40,16 +40,16 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="gnavi">
                             <li>
-                                <a href="/management/html">HTML</a>
+                                <a href="/management/html_word">HTML</a>
                             </li>
                             <li>
                                 <a href="/management/css">CSS</a>
                             </li>
                             <li>
-                                <a href="/management/list/htmlList">HTMLの一覧</a>
+                                <a href="/management/html_list">HTMLの一覧</a>
                             </li>
                             <li>
-                                <a href="/management/list/cssList">CSSの一覧</a>
+                                <a href="/management/css_list">CSSの一覧</a>
                             </li>
                         </ul>
                     </div>
