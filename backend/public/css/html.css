@@ -49,8 +49,10 @@
 }
 .main-word {
 line-height: 255px;
-text-align: center;
 color: black;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 
@@ -145,4 +147,12 @@ pre code {
 .code-block {
     color: rgb(227, 227, 227);
     background-color: rgb(54, 69, 73);
+}
+
+.bookmark-icon {
+    position: absolute;
+    left: 1000px;
+    top: 300px;
+    font-size: 50px;
+    z-index: 1;
 }

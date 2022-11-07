@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHtmlWordsTable extends Migration
+class CreateBookmarksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateHtmlWordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('html_words', function (Blueprint $table) {
+        Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
-            $table->string('html_name');
-            $table->string('html_meaning');
-            $table->string('html_HowToUse');
-            $table->string('html_example');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('html_word_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateHtmlWordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('html_words');
+        Schema::dropIfExists('bookmarks');
     }
 }

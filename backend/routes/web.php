@@ -23,9 +23,10 @@ route::get('mypage/index', 'MypageController@show')->name('mypage.show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/management', function () {
+    return view('management/index');
+});
 
-Route::get('/management', 'ManagementController@display');
 
 Route::get('/management/html_word', 'ManagementController@add_html')->name('add.html');
 Route::post('/management/html_word', 'ManagementController@insert_html')->name('insert.html');
@@ -38,5 +39,7 @@ Route::post('/management/edit', 'Managementcontroller@update_htmlList')->name('u
 Route::get('/management/css', 'ManagementController@add_css')->name('add.css');
 Route::post('/management/css', 'ManagementController@insert_css')->name('insert.css');
 
-Route::get('/bookmark/like/{id}', 'BookmarkController@like')->name('html.like');
-Route::get('/bookmark/unlike/{id}', 'BookmarkController@unlike')->name('html.unlike');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('/bookmark/like', 'BookmarkController@like')->name('html.like');
+});

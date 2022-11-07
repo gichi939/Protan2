@@ -63,20 +63,28 @@
 
                         </ul>
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <div class="openbtn1"><span></span><span></span><span></span></div>
-                            <nav id="g-nav">
-                                <ul id="g-ul">
-                                    <li><a href="#">Top</a></li>
-                                    <li><a href="/login">ログイン</a></li>
-                                    <li><a href="{{route('mypage.show')}}">マイページ</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </nav>
-                            <div class="circle-bg"></div>
-                            <!-- Authentication Links -->
+                        <ul class="right-nav">
+                            @auth
+                            <li>
+                                <a href="/login">マイページ</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                ログアウト
+                            </a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="/login">ログイン</a>
+                            </li>
+                            <li>
+                                <a href="/login">新規登録</a>
+                            </li>
+                            @endauth
                         </ul>
-
                     </div>
                 </nav>
             </div>

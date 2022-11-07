@@ -19193,11 +19193,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav */ "./resources/js/nav.js");
-/* harmony import */ var _nav__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nav__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./html */ "./resources/js/html.js");
-/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_html__WEBPACK_IMPORTED_MODULE_2__);
-
+/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./html */ "./resources/js/html.js");
+/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_html__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -19267,63 +19264,51 @@ $(".prg-more").on("click", function () {
 });
 $(".word-select").on("click", function () {
   if (words.name.length > 12) {
-    // if ($("#edit_area").length) {
     $('#edit_area').addClass('title-name-small');
   } else {
     $('#edit_area').removeClass('title-name-small');
   }
+
+  $('.bookmark-icon').addClass('click');
 });
+$(function () {
+  var like = $('.bookmark-icon'); //like-toggleのついたiタグを取得し代入。
 
-/***/ }),
+  var likeWordId; //変数を宣言（なんでここで？）
 
-/***/ "./resources/js/nav.js":
-/*!*****************************!*\
-  !*** ./resources/js/nav.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  like.on('click', function () {
+    //onはイベントハンドラー
+    if ($(like).hasClass('click')) {
+      likeWordId = words.id;
+    } else {
+      likeWordId = 1;
+    } //ajax処理スタート
 
-$(".openbtn1").click(function () {
-  //ボタンがクリックされたら
-  openMenu(this);
+
+    $.ajax({
+      headers: {
+        //HTTPヘッダ情報をヘッダ名と値のマップで記述
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+      url: '/bookmark/like',
+      //通信先アドレスで、このURLをあとでルートで設定します
+      method: 'POST',
+      //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+      data: {
+        //サーバーに送信するデータ
+        'word_id': likeWordId //いいねされた投稿のidを送る
+
+      }
+    }) //通信成功した時の処理
+    .done(function () {
+      $this.toggleClass('liked');
+    }) //通信失敗した時の処理
+    .fail(function () {
+      console.log('fail');
+    });
+  });
 });
-$("#g-nav a").click(function () {
-  //ナビゲーションのリンクがクリックされたら
-  closeMenu();
-}); //   $("body").click(function () {//ナビゲーションのリンクがクリックされたら
-//     if ($(".openbtn1").attr("class") == "openbtn1 active") {
-//         $(".openbtn1").removeClass('active');//ボタンの activeクラスを除去し
-//         $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスを除去
-//         $("#g-ul").removeClass('ul_active');
-//         $(".circle-bg").removeClass('circleactive');//丸背景のcircleactiveクラスを除去
-//     }
-// });
-
-$(".circle-bg").hover(function () {// hover on
-}, function () {
-  // hover off
-  closeMenu();
-});
-
-function openMenu(element) {
-  $(element).toggleClass('active'); //ボタン自身に activeクラスを付与し
-
-  $("#g-nav").toggleClass('panelactive'); //ナビゲーションにpanelactiveクラスを付与
-
-  $("#g-ul").toggleClass('ul_active');
-  $(".circle-bg").toggleClass('circleactive'); //丸背景にcircleactiveクラスを付与
-}
-
-function closeMenu() {
-  $(".openbtn1").removeClass('active'); //ボタンの activeクラスを除去し
-
-  $("#g-nav").removeClass('panelactive'); //ナビゲーションのpanelactiveクラスを除去
-
-  $("#g-ul").removeClass('ul_active');
-  $(".circle-bg").removeClass('circleactive'); //丸背景のcircleactiveクラスを除去
-}
-
-;
 
 /***/ }),
 
