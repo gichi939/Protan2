@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="bookmark">
-            <button>保存した単語へ</button>
+            <a href="{{ route('bookmark.words') }}"><button>保存した単語へ</button></a>
         </div>
     </div>
 </div>

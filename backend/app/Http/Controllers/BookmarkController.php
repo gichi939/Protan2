@@ -8,41 +8,37 @@ use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
-  //   public function like($id)
-  // {
-  //   $bookmark=New Bookmark();
-  //   $bookmark->html_word_id = $id;
-  //   $bookmark->user_id = Auth::id();
-  //   $bookmark->save();
-
-  //   session()->flash('success', 'You Liked the Reply.');
-
-  //   return redirect()->back();
-  // }
 
   public function like(Request $request)
 {
   $user_id = Auth::id();
   $word_id = $request->word_id;
-  $already_bookmark = Bookmark::where('user_id', $user_id)->where('word_id', $word_id)->first();
-  if (!$already_bookmark) {
+  $already_liked = Bookmark::where('user_id', $user_id)->where('html_word_id', $word_id)->first(); //3.
+
+  if (!$already_liked) {
     $bookmark=New Bookmark();
-    $bookmark->user_id = Auth::id();
-    $bookmark->html_word_id = $request->word_id; //2.投稿idの取得
+    $bookmark->user_id = $user_id;
+    $bookmark->html_word_id = $word_id; //2.投稿idの取得
     $bookmark->save();
   } else {
-    Bookmark::where('user_id', $user_id)->where('word_id', $word_id)->delete();
+    Bookmark::where('html_word_id', $word_id)->where('user_id', $user_id)->delete();
   }
-  return redirect()->back();
+  $bookmark_all_datas = Bookmark::get();
+  $param = [
+    'auth_id' => $user_id,
+    'bookmark_all_datas' => $bookmark_all_datas,
+];
+  return response()->json($param);
 }
 
-  public function unlike($id)
+  public function switch()
   {
-    $like = Bookmark::where('html_word_id', $id)->where('user_id', Auth::id())->first();
-    $like->delete();
-
-    session()->flash('success', 'You Unliked the Reply.');
-
-    return redirect()->back();
+    $user_id = Auth::id();
+    $bookmark_all_datas = Bookmark::get();
+    $param = [
+      'auth_id' => $user_id,
+      'bookmark_all_datas' => $bookmark_all_datas,
+  ];
+    return response()->json($param);
   }
 }

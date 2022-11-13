@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bookmark extends Model
 {
-    protected $fillable = ['reply_id','user_id'];
+    protected $fillable = ['html_word_id','user_id'];
 
-  public function reply()
+  public function htmlWord()
   {
-    return $this->belongsTo(Reply::class);
+    return $this->belongsTo(HtmlWord::class);
   }
 
   public function user()
