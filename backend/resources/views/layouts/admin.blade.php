@@ -66,7 +66,7 @@
                         <ul class="right-nav">
                             @auth
                             <li>
-                                <a href="/login">マイページ</a>
+                                <a href="{{ route('mypage.show') }}">マイページ</a>
                             </li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

@@ -18,7 +18,7 @@ class HtmlWord extends Model
         'html_HowToUse' => 'required',
     );
 
-    public function likes()
+    public function bookmarks()
   {
     return $this->hasMany(Bookmark::class, 'html_word_id');
   }

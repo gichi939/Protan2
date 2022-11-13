@@ -26,14 +26,13 @@
   });
 
   $(".word-select").on("click", function () {
+    $('.bookmark-icon').addClass('click');
     if ((words.name.length) > 12) {
       $('#edit_area').addClass('title-name-small');
     } else {
       $('#edit_area').removeClass('title-name-small');
     }
-      $('.bookmark-icon').addClass('click');
-
-    });
+  });
     $(function () {
       let like = $('.bookmark-icon'); //like-toggleのついたiタグを取得し代入。
       let likeWordId; //変数を宣言（なんでここで？）
@@ -55,8 +54,24 @@
           },
         })
         //通信成功した時の処理
-        .done(function () {
-          $this.toggleClass('liked');
+        .done(function (data) {
+          var data_stringify = JSON.stringify(data);
+          var data_json = JSON.parse(data_stringify);
+          var bookmark_datas = data_json['bookmark_all_datas'];
+          var auth_id = data_json['auth_id'];
+          for (let i = 0; i < bookmark_datas.length; i++) {
+            var user_id = data_json['bookmark_all_datas'][i]['user_id'];
+            var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
+            if (user_id == auth_id) {
+              if (html_word_id == likeWordId) {
+                $(like).addClass('liked');
+              } else {
+                if ($(like).hasClass('liked')) {
+                  $(like).removeClass('liked');
+                }
+              }
+            }
+          }
         })
         //通信失敗した時の処理
         .fail(function () {
@@ -64,5 +79,42 @@
         });
       });
       });
+
+      $(function () {
+        $(".word-select").on("click", function () {
+          $.ajax({
+            headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
+              'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+            },  //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+            url: '/bookmark/switch', //通信先アドレスで、このURLをあとでルートで設定します
+            method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+          })
+          .done(function (data) {
+            var data_stringify = JSON.stringify(data);
+          var data_json = JSON.parse(data_stringify);
+          var bookmark_datas = data_json['bookmark_all_datas'];
+          var auth_id = data_json['auth_id'];
+          for (let i = 0; i < bookmark_datas.length; i++) {
+            var user_id = data_json['bookmark_all_datas'][i]['user_id'];
+            var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
+            if (user_id == auth_id) {
+              if (html_word_id == words.id) {
+                if (!$('.bookmark-icon').hasClass('liked')) {
+                  $('.bookmark-icon').addClass('liked');
+                  bereak;
+                }
+              } else {
+                $('.bookmark-icon').removeClass('liked');
+              }
+            }
+          }
+          })
+          //通信失敗した時の処理
+          .fail(function () {
+            console.log('fail'); 
+          });
+        });
+      });
+
 
 

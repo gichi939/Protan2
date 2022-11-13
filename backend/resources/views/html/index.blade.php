@@ -17,19 +17,21 @@
         <div class="word-list small-3 medium-4 large-3 columns">
             @for ($i = 1; $i <= count($words); $i++) 
                 @php
-                $word = $words[$i-1]->html_name;
+                $htmlword = $words[$i-1]->html_name;
                 @endphp
             <div class="word-select">
-                @if(mb_strlen($word) < 19)
-                <li class="word" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $word }}</li>
+                @if(mb_strlen($htmlword) < 19)
+                <li class="word" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $htmlword }}</li>
                 
                 @else
-                <li class="word-small" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $word }}</li>
+                <li class="word-small" id="wordNumber{{ $i }}" onclick="menuButton(this, @json($i))"><span class=number>{{ $i }}</span>{{ $htmlword }}</li>
                 @endif
-
+                
             </div>
+            
             @auth
-                <i class="fa-regular fa-bookmark bookmark-icon"></i>
+            <i class="fa-regular fa-bookmark bookmark-icon"></i>
+            
             @else
             <a href="/login">
                 <i class="fa-regular fa-bookmark bookmark-icon"></i>
