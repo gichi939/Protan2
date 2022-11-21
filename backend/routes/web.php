@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 route::get('/html/index', 'HtmlController@show')->name('html.show');
 
-route::get('mypage/index', 'MypageController@show')->name('mypage.show');
-
 Auth::routes();
 
 Route::get('/management', function () {
@@ -39,7 +37,10 @@ Route::post('/management/edit', 'Managementcontroller@update_htmlList')->name('u
 Route::get('/management/css', 'ManagementController@add_css')->name('add.css');
 Route::post('/management/css', 'ManagementController@insert_css')->name('insert.css');
 
+Route::post('/bookmark/switch', 'BookmarkController@switch');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::middleware(['auth', 'verified'])->group(function () {
+    route::get('mypage/index', 'MypageController@show')->name('mypage.show');
+    route::get('mypage/bookmark', 'MypageController@bookmarkList')->name('bookmark.words');
     Route::post('/bookmark/like', 'BookmarkController@like')->name('html.like');
 });
