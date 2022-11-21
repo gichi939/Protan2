@@ -41,47 +41,34 @@
         <div class="container-fluid">
             <div class="row">
 
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm col-12">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                <nav class="navbar navbar-expand-md navbar-light shadow-sm col-12">
+                    <a class="logo-title" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="gnavi">
-                            <li>
-                                <a href="">
-                                    cotegory
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">検索</a>
-                            </li>
-
-
-                        </ul>
+                    <div class="collapse navbar-collapse">
                         <!-- Right Side Of Navbar -->
                         <ul class="right-nav">
                             @auth
-                            <li>
+                            <li class="mypage-button">
                                 <a href="{{ route('mypage.show') }}">マイページ</a>
                             </li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                            <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                ログアウト
-                            </a>
+                            <li class="logout-button">
+                                <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a>
                             </li>
                             @else
-                            <li>
+                            <li class="login-button">
                                 <a href="/login">ログイン</a>
                             </li>
-                            <li>
-                                <a href="/login">新規登録</a>
+                            <li class="register-button">
+                                <a href="/register">新規登録</a>
                             </li>
                             @endauth
                         </ul>
