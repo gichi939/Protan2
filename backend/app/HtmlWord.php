@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Bookmark;
 
 class HtmlWord extends Model
 {
@@ -21,5 +22,9 @@ class HtmlWord extends Model
     public function bookmarks()
   {
     return $this->hasMany(Bookmark::class, 'html_word_id');
+  }
+
+  public function isLikedBy($user): bool {
+    return Bookmark::where('user_id', $user->id)->where('html_word_id', 1)->first() !==null;
   }
 }

@@ -18,12 +18,12 @@
             @for ($i = 1; $i <= count($bookmarks); $i++)
             <div class="word-select">
                 @php
-                $bookmark_id = $bookmarks[$i - 1]->html_word_id;
-                if ($html_db[$i - 1]->id = $bookmark_id) {
-                    $html_name = $html_db[$bookmark_id - 1]->html_name;
-                    $html_meaning = $html_db[$bookmark_id - 1]->html_meaning;
-                    $html_HowToUse = $html_db[$bookmark_id - 1]->html_HowToUse;
-                }
+                    $bookmark_id = $bookmarks[$i - 1]->html_word_id;
+                        if ($html_db[$i - 1]->id = $bookmark_id) {
+                            $html_name = $html_db[$bookmark_id - 1]->html_name;
+                            $html_meaning = $html_db[$bookmark_id - 1]->html_meaning;
+                            $html_HowToUse = $html_db[$bookmark_id - 1]->html_HowToUse;
+                        }
                 @endphp
                 
 

@@ -28,15 +28,6 @@
                 @endif
                 
             </div>
-            
-            @auth
-            <i class="fa-regular fa-bookmark bookmark-icon"></i>
-            
-            @else
-            <a href="/login">
-                <i class="fa-regular fa-bookmark bookmark-icon"></i>
-            </a>
-            @endauth
             @endfor
 
         </div>
@@ -45,9 +36,18 @@
 
             <div class="main-word">
                 <p class=title-name id="edit_area">{{ $words[0]->html_name}}</p>
-
-                    
             </div>
+            @auth
+                @if (!$first_word->isLikedBy(Auth::user()))
+                    <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
+                @else
+                    <i class="fa-regular fa-bookmark bookmark-icon"></i>
+                @endif
+            @else
+                <a href="/login" class="login-link">
+                    <i class="fa-regular fa-bookmark bookmark-icon"></i>
+                </a>
+            @endauth
                 
         
             <div class="col-12">

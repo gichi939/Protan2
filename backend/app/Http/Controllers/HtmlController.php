@@ -9,7 +9,8 @@ class HtmlController extends Controller
     public function show() 
     {
         $words = HtmlWord::all();
+        $first_word = HtmlWord::find(1);
         
-        return view('html/index', compact('words'));
+        return view('html/index', compact('words','first_word'));
     }
 }
