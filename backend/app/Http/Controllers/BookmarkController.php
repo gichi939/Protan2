@@ -13,12 +13,12 @@ class BookmarkController extends Controller
 {
   $user_id = Auth::id();
   $word_id = $request->word_id;
-  $already_liked = Bookmark::where('user_id', $user_id)->where('html_word_id', $word_id)->first(); //3.
+  $already_liked = Bookmark::where('user_id', $user_id)->where('html_word_id', $word_id)->first();
 
   if (!$already_liked) {
     $bookmark=New Bookmark();
     $bookmark->user_id = $user_id;
-    $bookmark->html_word_id = $word_id; //2.投稿idの取得
+    $bookmark->html_word_id = $word_id; //投稿idの取得
     $bookmark->save();
   } else {
     Bookmark::where('html_word_id', $word_id)->where('user_id', $user_id)->delete();
@@ -27,7 +27,7 @@ class BookmarkController extends Controller
   $param = [
     'auth_id' => $user_id,
     'bookmark_all_datas' => $bookmark_all_datas,
-];
+  ];
   return response()->json($param);
 }
 

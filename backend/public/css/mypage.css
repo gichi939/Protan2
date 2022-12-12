@@ -1,5 +1,5 @@
 .title-logo {
-    margin-top: 100px;
+    padding-top: 100px;
     font-size: 4rem;
 }
 
@@ -9,15 +9,12 @@
     justify-content: center;
 }
 
-.name-label > p{
+.name-label,
+.mail-label p{
     margin-top: 50px;
 }
 
-.mail-label > p {
-    margin-top: 50px;
-}
-
-.bookmark > button{
+.bookmark button{
     display: block;
     margin: auto;
     margin-top: 80px;

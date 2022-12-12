@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('top/index');
 });
 
+Route::get('/modal', function () {
+    return view('modal/index');
+});
+
 route::get('/html/index', 'HtmlController@show')->name('html.show');
 
 Auth::routes();
@@ -24,7 +28,6 @@ Auth::routes();
 Route::get('/management', function () {
     return view('management/index');
 });
-
 
 Route::get('/management/html_word', 'ManagementController@add_html')->name('add.html');
 Route::post('/management/html_word', 'ManagementController@insert_html')->name('insert.html');
@@ -40,7 +43,8 @@ Route::post('/management/css', 'ManagementController@insert_css')->name('insert.
 Route::post('/bookmark/switch', 'BookmarkController@switch');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    route::get('mypage/index', 'MypageController@show')->name('mypage.show');
+    route::get('mypage/index', 'MypageController@index')->name('mypage.show');
     route::get('mypage/bookmark', 'MypageController@bookmarkList')->name('bookmark.words');
     Route::post('/bookmark/like', 'BookmarkController@like')->name('html.like');
 });
+Route::get('/management/html_list', 'HomeController@index')->name('search.index');

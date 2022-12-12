@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Services\MypageServises;
 use Illuminate\Support\ServiceProvider;
+use App\consts\ServiseAliasConst;
+use GuzzleHttp\Psr7\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(ServiseAliasConst::MYPAGE, function () {
+            return new MypageServises;
+        });
     }
 
     /**

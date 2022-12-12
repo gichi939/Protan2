@@ -24,6 +24,27 @@
                     @endforeach
                 </tbody>
             </table>
+            <nav>
+                <button class="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            <!-- モーダル本体 -->
+            <div class="modal-container">
+                <div class="modal-body">
+                    <!-- 閉じるボタン -->
+                    <div class="modal-close">×</div>
+                    <!-- モーダル内のコンテンツ -->
+                    <div class="modal-content">
+                        <form method="get" action="{{ route('search.index') }}">
+                            <input type="search" placeholder="単語名を入力" name="search" value="@if (isset($search)) @endif">
+                            <div>
+                                <button type="submit">検索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </nav>
         </div>
     </div>
 @endsection

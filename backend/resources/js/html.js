@@ -1,3 +1,5 @@
+const { ajax } = require("jquery");
+
   // リスト押下時バナーを閉じる
   $(".word").on("click", function () {
     $(".more").removeClass("on-click");
@@ -33,6 +35,7 @@
       $('#edit_area').removeClass('title-name-small');
     }
   });
+
     $(function () {
       let like = $('.bookmark-icon'); //like-toggleのついたiタグを取得し代入。
       let likeWordId; //変数を宣言（なんでここで？）
@@ -97,12 +100,13 @@
           for (let i = 0; i < bookmark_datas.length; i++) {
             var user_id = data_json['bookmark_all_datas'][i]['user_id'];
             var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
+            function compareFunc(a, b) {
+              return a - b;
+            }
             if (user_id == auth_id) {
               if (html_word_id == words.id) {
-                if (!$('.bookmark-icon').hasClass('liked')) {
-                  $('.bookmark-icon').addClass('liked');
-                  bereak;
-                }
+                $('.bookmark-icon').addClass('liked');
+                break;
               } else {
                 $('.bookmark-icon').removeClass('liked');
               }
@@ -116,5 +120,30 @@
         });
       });
 
-
-
+      $(function(){
+        // 変数に要素を入れる
+        var open = $('.search-button'),
+          close = $('.modal-close'),
+          container = $('.modal-container');
+      
+        //開くボタンをクリックしたらモーダルを表示する
+        open.on('click',function(){	
+          container.addClass('active');
+          $('body').css('overflow-y', 'hidden'); 
+          return false;
+        });
+      
+        //閉じるボタンをクリックしたらモーダルを閉じる
+        close.on('click',function(){
+          container.removeClass('active');
+          $('body').css('overflow-y','auto'); 
+        });
+      
+        //モーダルの外側をクリックしたらモーダルを閉じる
+        $(document).on('click',function(e) {
+          if(!$(e.target).closest('.modal-body').length) {
+            container.removeClass('active');
+            $('body').css('overflow-y','auto'); 
+          }
+        });
+      });

@@ -13,7 +13,7 @@
 
 .word-select {
     background-color: #fff;
-    width: 215px;
+    width: 210px;
     height: 50px;
     margin-bottom: 10px;
     list-style: none;
@@ -31,39 +31,36 @@
 }
 
 .main-word-area {
-    background-color: #fff;
-    width: 300px;
-    height: 300px;
     margin-top: 80px;
-    border: solid;
 }
 
 .title-name {
-    margin-top: 20px;
+    margin: 0;
     font-size: 10rem;
 }
 
 .title-name-small {
-    margin-top: 20px;
+    margin: 0;
     font-size: 4.5rem;
 }
+
 .main-word {
-line-height: 255px;
-color: black;
-display: flex;
-justify-content: center;
-align-items: center;
+    background-color: #fff;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border: solid;
 }
-
-
-.word-mean {
-    background-color: cornsilk;
-    margin-top: 50px;
-}
-
-.word-mean p {
+.word-mean p,
+.prg-exm p {
     text-align: center;
     padding: 15px 0;
+}
+
+.prg-exm {
+    margin-top: 50px;
 }
 
 .number {
@@ -167,4 +164,62 @@ pre code {
 
 .login-link:hover {
     color: #000;
+}
+
+/* スマホ用のcss */
+@media (max-width: 450px) {
+    .word-list {
+        order: 1;
+    }
+
+    .title-name,
+    .title-name-small {
+        margin: 0;
+        font-size: 25px;
+    }
+
+    .main-word {
+        background-color: #fff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        border: solid;
+    }
+
+    .bookmark-icon {
+        position: relative;
+        left: 290px;
+        bottom: 40px;
+        font-size: 30px;
+        z-index: 1;
+    }
+
+    .prg-exm {
+        margin-top: 20px;
+    }
+
+    .word-list {
+        background-color: #001e43;
+        width: 230px;
+        height: 210px;
+        overflow: scroll;
+        border: 10px solid;
+        margin: 20px auto 0 auto;
+    }
+
+    .word-select {
+        background-color: #fff;
+        width: 210px;
+        height: 30px;
+        margin-bottom: 10px;
+        list-style: none;
+    }
+
+    .word,
+    .word-small {
+        line-height: 30px;
+        text-align: center;
+    }
 }

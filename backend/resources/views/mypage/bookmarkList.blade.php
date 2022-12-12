@@ -14,7 +14,7 @@
     <div class="row">
         
         <!-- left side -->
-        <div class="word-list small-3 medium-4 large-3 columns">
+        <div class="word-list">
             @for ($i = 1; $i <= count($bookmarks); $i++)
             <div class="word-select">
                 @php
@@ -38,34 +38,34 @@
         </div>
 
         <!-- center -->
-        <div class="main-word-area offset-1 col-8">
+        <div class="main-word-area col-lg-8 col-sm-12 offset-sm-1">
 
             <div class="main-word">
                 <p class=title-name id="edit_area">{{ $html_name }}</p>
             </div>
             
-                
-        
-            <div class="col-12">
-            
-                <div class="word-mean">
-                    <p id="more" class="more"></p>
-                </div>
-                <div id="txt-hide">
-                    <p>{{ $html_meaning}}</p>
-                </div>
-        
-                <div class="word-mean">
-                    <p id="prg-more" class="prg-more"></p>
-                </div>
-        
-        
-                <div id="prg-hide">
-                    <p>{{ $html_HowToUse }}</p>
-                </div>
-                
-        
+            @if ($first_word->isLikedBy(Auth::user()))
+            <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
+            @else
+            <i class="fa-regular fa-bookmark bookmark-icon"></i>
+            @endif
+
+            <div class="word-mean">
+                <p id="more" class="more"></p>
             </div>
+            <div id="txt-hide">
+                <p>{{ $html_meaning}}</p>
+            </div>
+    
+            <div class="word-mean">
+                <p id="prg-more" class="prg-more"></p>
+            </div>
+    
+    
+            <div id="prg-hide">
+                <p>{{ $html_HowToUse }}</p>
+            </div>
+                
         </div> 
     </div>
 

@@ -40,39 +40,51 @@
     <div id="app">
         <div class="container-fluid">
             <div class="row">
-
                 <nav class="navbar navbar-expand-md navbar-light shadow-sm col-12">
                     <a class="logo-title" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    
+                    <!-- Right Side Of Navbar -->
+                    @auth
+                    <ul class="right-nav-auth non-active">
+                        <li class="mypage-button">
+                            <a href="{{ route('mypage.show') }}">マイページ</a>
+                        </li>
 
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
-                    <div class="collapse navbar-collapse">
-                        <!-- Right Side Of Navbar -->
-                        <ul class="right-nav">
-                            @auth
-                            <li class="mypage-button">
-                                <a href="{{ route('mypage.show') }}">マイページ</a>
-                            </li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            <li class="logout-button">
-                                <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    ログアウト
-                                </a>
-                            </li>
-                            @else
-                            <li class="login-button">
-                                <a href="/login">ログイン</a>
-                            </li>
-                            <li class="register-button">
-                                <a href="/register">新規登録</a>
-                            </li>
-                            @endauth
-                        </ul>
-                    </div>
+                        <li class="logout-button">
+                            <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                ログアウト
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                        <button class="header-hamburger" style="outline: none;">
+                            <span class="bar bar_top"></span>
+                            <span class="bar bar_mid"></span>
+                            <span class="bar bar_bottom"></span>
+                        </button>
+
+                    @else
+
+                    <ul class="right-nav">
+                        <li class="login-button">
+                            <a href="/login">ログイン</a>
+                        </li>
+
+                        <li class="register-button">
+                            <a href="/register">新規登録</a>
+                        </li>
+
+                        @endauth
+                    </ul>
                 </nav>
             </div>
         </div>
@@ -80,7 +92,6 @@
     <main>
         @yield('content')
     </main>
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </body>
 

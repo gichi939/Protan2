@@ -68,13 +68,6 @@ body {
   color: pink;
 }
 
-/* hedder */
-.navbar {
-  position: fixed;
-  height: 50px;
-  z-index: 1;
-}
-
 .navbar-brand {
   font-size: 2rem;
 }
