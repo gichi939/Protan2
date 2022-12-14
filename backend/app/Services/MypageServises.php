@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class MypageServises
 {
     public function show() {
-        $users = user::find(Auth::id());
-        return $users;
+        $user = user::find(Auth::id());
+        return $user;
     }
 }
