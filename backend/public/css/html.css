@@ -166,6 +166,16 @@ pre code {
     color: #000;
 }
 
+@media (max-width: 1200px) {
+    .bookmark-icon {
+        position: relative;
+        left: 540px;
+        bottom: 60px;
+        font-size: 50px;
+        z-index: 1;
+    }
+}
+
 /* スマホ用のcss */
 @media (max-width: 450px) {
     .word-list {
