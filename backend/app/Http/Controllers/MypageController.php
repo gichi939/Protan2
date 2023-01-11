@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\user;
-use App\Bookmark;
-use App\HtmlWord;
+use App\Models\user;
+use App\Models\Bookmark;
+use App\Models\HtmlWord;
 use App\Services\MypageServises;
 use App\Facades\MypageFacades;
 

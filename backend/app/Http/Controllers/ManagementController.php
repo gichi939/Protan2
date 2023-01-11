@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\HtmlWord;
+use App\Models\HtmlWord;
 
 class ManagementController extends Controller
 {

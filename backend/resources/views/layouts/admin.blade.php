@@ -47,31 +47,29 @@
                     
                     <!-- Right Side Of Navbar -->
                     @auth
-                    <ul class="right-nav-auth non-active">
-                        <li class="mypage-button">
-                            <a href="{{ route('mypage.show') }}">マイページ</a>
-                        </li>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                        <li class="logout-button">
-                            <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                ログアウト
-                            </a>
-                        </li>
-                    </ul>
-                    <button class="search-button">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    <div style="margin: 0 0 0 auto">
                         <button class="header-hamburger" style="outline: none;">
                             <span class="bar bar_top"></span>
                             <span class="bar bar_mid"></span>
                             <span class="bar bar_bottom"></span>
                         </button>
-
+                        <ul class="right-nav-auth non-active">
+                            <li class="mypage-button">
+                                <a href="{{ route('mypage.show') }}">マイページ</a>
+                            </li>
+    
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+    
+                            <li class="logout-button">
+                                <a class="login_link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     @else
 
                     <ul class="right-nav">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Bookmark;
+use App\Models\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

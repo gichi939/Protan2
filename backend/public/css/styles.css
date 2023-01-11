@@ -65,7 +65,8 @@ body {
 
 
 .liked {
-  color: pink;
+  color: rgb(249, 24, 128);
+  font-weight: 900 !important;
 }
 
 .navbar-brand {

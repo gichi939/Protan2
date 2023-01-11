@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\user;
+use App\Models\user;
 use Illuminate\Support\Facades\Auth;
 
 class MypageServises

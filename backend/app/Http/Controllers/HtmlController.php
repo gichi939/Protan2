@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\HtmlWord;
+use App\Models\HtmlWord;
 
 class HtmlController extends Controller
 {
