@@ -41,7 +41,7 @@
         <div class="main-word-area col-lg-8 col-sm-12 offset-sm-1">
 
             <div class="main-word">
-                <p class=title-name id="edit_area">{{ $html_name }}</p>
+                <p class=title-name id="edit_area">{{ $html_db[0]->html_name }}</p>
             </div>
             
             @if ($first_word->isLikedBy(Auth::user()))
@@ -54,16 +54,16 @@
                 <p id="more" class="more"></p>
             </div>
             <div id="txt-hide">
-                <p>{{ $html_meaning}}</p>
+                <p>{{ $html_db[0]->html_meaning}}</p>
             </div>
     
-            <div class="word-mean">
+            <div class="prg-exm">
                 <p id="prg-more" class="prg-more"></p>
             </div>
     
     
             <div id="prg-hide">
-                <p>{{ $html_HowToUse }}</p>
+                <p>{{ $html_db[0]->html_HowToUse }}</p>
             </div>
                 
         </div> 

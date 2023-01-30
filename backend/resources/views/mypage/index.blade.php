@@ -12,14 +12,15 @@
     <div class="low">
         <div class="title-logo">
             <p>Mypage</p>
+            <hr>
         </div>
         <div class="user-info">
-            <div class="name-label">
-                <p>ニックネーム</p>
+            <div class="name-form">
+                <p class="name-label">ニックネーム</p>
                 <p>{{ $users->name }}</p>
             </div>
-            <div class="mail-label">
-                <p>メールアドレス</p>
+            <div class="mail-form">
+                <p class="mail-label">メールアドレス</p>
                 <p>{{ $users->email }}</p>
             </div>
         </div>

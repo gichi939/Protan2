@@ -24,16 +24,14 @@
 }
 
 .right-nav-auth{
-    position: absolute;
-    right: 0;
-    top: 50px;
-    background: rgb(51, 51, 51);
-    margin: auto;
-    list-style: none;
-    padding: 0;
-    width: 150px;
-    height: 70px;
-    background-color: #001e43;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  list-style: none;
+  padding: 0;
+  width: 150px;
+  height: 70px;
+  background-color: #001e43;
 }
 
 .login-button,
@@ -79,16 +77,9 @@ button {
 }
 
   .header-hamburger{
-    display: block;
     width: 39px;
     height: 39px;
-    border:none;
     position: relative;
-    margin: 0 0 0 auto;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .bar{
     width: 20px;      

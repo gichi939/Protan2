@@ -30171,12 +30171,9 @@ $(".word-select").on("click", function () {
   }
 });
 $(function () {
-  var like = $('.bookmark-icon'); //like-toggleのついたiタグを取得し代入。
-
-  var likeWordId; //変数を宣言（なんでここで？）
-
+  var like = $('.bookmark-icon');
+  var likeWordId;
   like.on('click', function () {
-    //onはイベントハンドラー
     if ($(like).hasClass('click')) {
       likeWordId = words.id;
     } else {
@@ -30290,6 +30287,14 @@ $(function () {
       $('body').css('overflow-y', 'auto');
     }
   });
+}); // popupを表示
+
+$(".register-popup-button").on("click", function () {
+  $('.register-popup').addClass('click');
+}); // popupを非表示
+
+$(".close-button").on("click", function () {
+  $('.register-popup').removeClass('click');
 });
 
 /***/ }),

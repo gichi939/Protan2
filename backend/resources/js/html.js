@@ -37,9 +37,9 @@ const { ajax } = require("jquery");
   });
 
     $(function () {
-      let like = $('.bookmark-icon'); //like-toggleのついたiタグを取得し代入。
-      let likeWordId; //変数を宣言（なんでここで？）
-      like.on('click', function () { //onはイベントハンドラー
+      let like = $('.bookmark-icon');
+      let likeWordId;
+      like.on('click', function () {
         if ($(like).hasClass('click')) {
           likeWordId = words.id;
         } else {
@@ -147,3 +147,16 @@ const { ajax } = require("jquery");
           }
         });
       });
+
+      // popupを表示
+      $(".register-popup-button").on("click", function () {
+        $('.register-popup').addClass('click');
+      });
+
+      // popupを非表示
+      $(".close-button").on("click", function () {
+        $('.register-popup').removeClass('click');
+      });
+
+
+

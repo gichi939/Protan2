@@ -44,9 +44,30 @@
                     <i class="fa-regular fa-bookmark bookmark-icon"></i>
                 @endif
             @else
-                <a href="/login" class="login-link">
-                    <i class="fa-regular fa-bookmark bookmark-icon"></i>
-                </a>
+                <div>
+                    <i class="fa-regular fa-bookmark bookmark-icon register-popup-button"></i>
+                </div>
+                <div class="register-popup">
+                    <div class="popup-backgrond"></div>
+                    <div class="popup-body">
+                        <div class="register-sentence">
+                            <div>
+                                新規登録することで単語を保存できて、学習しやすくなります。
+                            </div>
+                            <button class="close-button">
+                                <i class="fa-solid fa-xmark close"></i>
+                            </button>
+                        </div>
+                        <div class="auth-link">
+                            <a class="register-popup-link" href="/register">
+                                新規登録
+                            </a>
+                            <a class="login-popup-link" href="/login">
+                                ログイン
+                            </a>
+                        </div>
+                    </div>
+                </div>
             @endauth
             
             <div class="word-mean">

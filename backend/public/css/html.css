@@ -162,6 +162,69 @@ pre code {
     color: #000;
 }
 
+.register-popup{
+    display: none;
+}
+
+.register-popup.click {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-backgrond {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.6);
+    z-index: 3100;
+}
+
+.popup-body {
+    width: 100%;
+    max-width: 572px;
+    padding: 32px;
+    background-color: #fff;
+    z-index: 3200;
+    border-radius: 10px;
+}
+
+.register-sentence {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.close-button {
+    outline: none !important;
+}
+
+.register-popup-button {
+    cursor: pointer;
+}
+
+.fa-xmark {
+    font-size: 2.5rem;
+}
+
+.auth-link {
+    margin-top: 20px;
+}
+
+.register-popup-link,
+.login-popup-link {
+    margin-right: 1rem;
+    font-weight: 900;
+    color: #001e43;
+}
+
 @media (max-width: 1200px) {
     .bookmark-icon {
         position: relative;
