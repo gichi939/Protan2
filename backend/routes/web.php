@@ -32,10 +32,10 @@ Route::get('/management', function () {
 Route::get('/management/html_word', 'ManagementController@add_html')->name('add.html');
 Route::post('/management/html_word', 'ManagementController@insert_html')->name('insert.html');
 
-Route::get('/management/html_list', 'Managementcontroller@display_htmlList')->name('display.htmlList');
+Route::get('/management/html_list', 'ManagementController@display_htmlList')->name('display.htmlList');
 
-Route::get('/management/edit', 'Managementcontroller@edit_htmlList')->name('edit.htmlList');
-Route::post('/management/edit', 'Managementcontroller@update_htmlList')->name('update.htmlList');
+Route::get('/management/edit', 'ManagementController@edit_htmlList')->name('edit.htmlList');
+Route::post('/management/edit', 'ManagementController@update_htmlList')->name('update.htmlList');
 
 Route::get('/management/css', 'ManagementController@add_css')->name('add.css');
 Route::post('/management/css', 'ManagementController@insert_css')->name('insert.css');

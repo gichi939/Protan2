@@ -26,12 +26,13 @@
 .right-nav-auth{
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 43px;
   list-style: none;
   padding: 0;
   width: 150px;
   height: 70px;
   background-color: #001e43;
+  border-radius: 10px !important;
 }
 
 .login-button,
@@ -54,6 +55,7 @@
 .mypage-button,
 .logout-button {
     margin-left: 1rem;
+    margin-top: 5px;
 }
 
 .logout-button {

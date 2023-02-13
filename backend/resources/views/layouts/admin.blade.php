@@ -20,10 +20,18 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- css読み込み -->
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css">
+
+    @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ secure_asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/nav.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/header.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    @endif
+
     @yield('styles')
 
     <!-- jQuery読み込み -->

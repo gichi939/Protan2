@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\Services\MypageServises;
 use Illuminate\Support\ServiceProvider;
 use App\consts\ServiseAliasConst;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
