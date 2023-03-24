@@ -26,7 +26,12 @@
     top: 0;
     right: 0px;
     width: 200px;
+    display: flex;
+    list-style: none;
+    margin: auto 0;
 }
+
+#g
 
 /*丸の拡大*/
 .circle-bg{

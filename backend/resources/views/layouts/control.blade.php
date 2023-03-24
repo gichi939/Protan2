@@ -45,13 +45,13 @@
                                 <a href="/management/html_word">HTML</a>
                             </li>
                             <li>
-                                <a href="/management/css">CSS</a>
+                                <a href="/management/css/index">CSS</a>
                             </li>
                             <li>
                                 <a href="/management/html_list">HTMLの一覧</a>
                             </li>
                             <li>
-                                <a href="/management/css_list">CSSの一覧</a>
+                                <a href="/management/css/css_list">CSSの一覧</a>
                             </li>
                         </ul>
                     </div>

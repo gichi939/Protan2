@@ -11021,6 +11021,15 @@ $(".word-select").on("click", function () {
     $('#edit_area').removeClass('title-name-small');
   }
 });
+$(".css-word-select").on("click", function () {
+  $('.css-bookmark-icon').addClass('click');
+
+  if (words.name.length > 12) {
+    $('#edit_area').addClass('title-name-small');
+  } else {
+    $('#edit_area').removeClass('title-name-small');
+  }
+});
 $(function () {
   var like = $('.bookmark-icon');
   var likeWordId;
@@ -11116,6 +11125,100 @@ $(function () {
   });
 });
 $(function () {
+  var css_like = $('.css-bookmark-icon');
+  var likeWordId;
+  css_like.on('click', function () {
+    if ($(css_like).hasClass('click')) {
+      likeWordId = words.id;
+    } else {
+      likeWordId = 1;
+    } //ajax処理スタート
+
+
+    $.ajax({
+      headers: {
+        //HTTPヘッダ情報をヘッダ名と値のマップで記述
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+      url: '/bookmark/css_like',
+      //通信先アドレスで、このURLをあとでルートで設定します
+      method: 'POST',
+      //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+      data: {
+        //サーバーに送信するデータ
+        'word_id': likeWordId //いいねされた投稿のidを送る
+
+      }
+    }) //通信成功した時の処理
+    .done(function (data) {
+      var data_stringify = JSON.stringify(data);
+      var data_json = JSON.parse(data_stringify);
+      var bookmark_datas = data_json['bookmark_all_datas'];
+      var auth_id = data_json['auth_id'];
+
+      for (var i = 0; i < bookmark_datas.length; i++) {
+        var user_id = data_json['bookmark_all_datas'][i]['user_id'];
+        var css_word_id = data_json['bookmark_all_datas'][i]['css_word_id'];
+
+        if (user_id == auth_id) {
+          if (css_word_id == likeWordId) {
+            $(css_like).addClass('liked');
+          } else {
+            if ($(css_like).hasClass('liked')) {
+              $(css_like).removeClass('liked');
+            }
+          }
+        }
+      }
+    }) //通信失敗した時の処理
+    .fail(function () {
+      console.log('fail');
+    });
+  });
+});
+$(function () {
+  $(".css-word-select").on("click", function () {
+    $.ajax({
+      headers: {
+        //HTTPヘッダ情報をヘッダ名と値のマップで記述
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+      url: '/bookmark/css_switch',
+      //通信先アドレスで、このURLをあとでルートで設定します
+      method: 'POST' //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+
+    }).done(function (data) {
+      var data_stringify = JSON.stringify(data);
+      var data_json = JSON.parse(data_stringify);
+      var bookmark_datas = data_json['bookmark_all_datas'];
+      var auth_id = data_json['auth_id'];
+
+      for (var i = 0; i < bookmark_datas.length; i++) {
+        var compareFunc = function compareFunc(a, b) {
+          return a - b;
+        };
+
+        var user_id = data_json['bookmark_all_datas'][i]['user_id'];
+        var css_word_id = data_json['bookmark_all_datas'][i]['css_word_id'];
+
+        if (user_id == auth_id) {
+          if (css_word_id == words.id) {
+            $('.css-bookmark-icon').addClass('liked');
+            break;
+          } else {
+            $('.css-bookmark-icon').removeClass('liked');
+          }
+        }
+      }
+    }) //通信失敗した時の処理
+    .fail(function () {
+      console.log('fail');
+    });
+  });
+});
+$(function () {
   // 変数に要素を入れる
   var open = $('.search-button'),
       close = $('.modal-close'),
@@ -11146,6 +11249,26 @@ $(".register-popup-button").on("click", function () {
 
 $(".close-button").on("click", function () {
   $('.register-popup').removeClass('click');
+});
+$(function () {
+  $("#save-word").onclick(function () {
+    // value値を設定
+    var select_words = $("#save-word").val();
+    $.ajax({
+      headers: {
+        //HTTPヘッダ情報をヘッダ名と値のマップで記述
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+      url: '/bookmark/css_switch',
+      //通信先アドレスで、このURLをあとでルートで設定します
+      method: 'POST' //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+
+    }).done(function (data) {
+      if (selct_words = "html") {//
+      }
+    }).fail(function () {});
+  });
 });
 
 /***/ }),

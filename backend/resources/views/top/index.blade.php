@@ -17,7 +17,7 @@
             </div>
             <div class="offset-1"></div>
             <div class="course-item col-5">
-                <a class="cource-link" href="">
+                <a class="cource-link" href="{{ route('css.show') }}">
                     <div class="link-obj">
                         <h1 class="course-title">CSS編</h1>
                         <img class="course-image" src=" {{ asset('image/css3_logo.png') }}" alt="">

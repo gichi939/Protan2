@@ -11,12 +11,14 @@
     display: none;
 }
 
-.word-select {
+.word-select,
+.css-word-select {
     background-color: #fff;
     width: 210px;
     height: 50px;
     margin-bottom: 10px;
     list-style: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .word {
@@ -37,6 +39,7 @@
 .title-name {
     margin: 0;
     font-size: 10rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .title-name-small {
@@ -146,7 +149,8 @@ pre code {
     background-color: rgb(54, 69, 73);
 }
 
-.bookmark-icon {
+.bookmark-icon,
+.css-bookmark-icon {
     position: relative;
     left: 650px;
     bottom: 60px;
@@ -257,7 +261,8 @@ pre code {
         border: solid;
     }
 
-    .bookmark-icon {
+    .bookmark-icon,
+    .css-bookmark-icon {
         position: relative;
         left: 290px;
         bottom: 40px;
