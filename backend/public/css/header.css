@@ -19,20 +19,10 @@
     align-items: flex-end;
 }
 
-.non-active{
-    display: none;
-}
-
 .right-nav-auth{
-  position: absolute;
-  right: 0;
-  top: 43px;
+  display: flex;
+  align-items: flex-end;
   list-style: none;
-  padding: 0;
-  width: 150px;
-  height: 70px;
-  background-color: #001e43;
-  border-radius: 10px !important;
 }
 
 .login-button,
@@ -48,7 +38,7 @@
 .mypage-button a,
 .logout-button a {
     color: #fff;
-    padding: 12.75px 12px;
+    padding: 17.5px 17px;
 }
 
 .register-button,

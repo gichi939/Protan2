@@ -30429,11 +30429,7 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {
-  $('.header-hamburger').on('click', function () {
-    $('.right-nav-auth').toggle();
-  });
-});
+
 
 /***/ }),
 

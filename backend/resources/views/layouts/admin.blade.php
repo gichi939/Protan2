@@ -62,14 +62,9 @@
                     <!-- Right Side Of Navbar -->
                     @auth
                         <div style="margin: 0 0 0 auto">
-                            <button class="header-hamburger" style="outline: none;">
-                                <span class="bar bar_top"></span>
-                                <span class="bar bar_mid"></span>
-                                <span class="bar bar_bottom"></span>
-                            </button>
-                            <ul class="right-nav-auth non-active">
+                            <ul class="right-nav-auth">
                                 <li class="mypage-button">
-                                    <a href="{{ route('mypage.show') }}">マイページ</a>
+                                    <a href="{{ route('mypage.show') }}"><i class="fa-solid fa-lg fa-user"></i></a>
                                 </li>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -79,8 +74,8 @@
                                 <li class="logout-button">
                                     <a class="login_link" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                        ログアウト
+                                        document.getElementById('logout-form').submit();">
+                                        <i class="fa-solid fa-lg fa-right-from-bracket"></i>
                                     </a>
                                 </li>
                             </ul>
