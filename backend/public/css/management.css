@@ -48,3 +48,17 @@ table{
 th,td{
     border:solid 1px black;
   }
+
+.gnavi {
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+}
+
+.gnavi li {
+    margin-right: 10px;
+}
+
+.gnavi li a {
+    color: black;
+}

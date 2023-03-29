@@ -1,0 +1,50 @@
+.card {
+    height: 450px;
+}
+
+.register-card {
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+.form-control {
+    height: 50px;
+    border-radius: 5px;
+}
+
+.mailaddress-form-group {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+}
+
+.password-form-group {
+    margin-bottom: 1rem;
+}
+
+.password-confirmation {
+    margin-left: 0;
+    margin-bottom: 8rem;
+}
+
+.password-check-input {
+    margin-left: -1.25rem;
+}
+
+.btn-link {
+    margin-left: 20px;
+}
+
+.btn-primary {
+    height: 50px;
+    width: 164.33px;
+}
+
+.register-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.register-button-group {
+    margin-top: 3rem;
+}

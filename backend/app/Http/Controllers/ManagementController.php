@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\HtmlWord;
+use App\Models\CssWord;
 
 class ManagementController extends Controller
 {
@@ -80,7 +81,42 @@ class ManagementController extends Controller
 
     public function add_css()
     {
-        return view('management/css');
+        return view('management/css/index');
+    }
+
+    public function insert_css(Request $request)
+    {
+        $CssWord = new CssWord;
+        $CssWord->css_name = $request->css_name;
+        $CssWord->css_meaning = $request->css_meaning;
+        $CssWord->css_HowToUse = $request->css_HowToUse;
+        $CssWord->css_example = $request->css_example;
+        
+
+        $CssWord->save();
+
+        return redirect()->action('ManagementController@add_css');
+    }
+
+    public function display_cssList()
+    {
+        $css_words = CssWord::all();
+        return view('management/css/css_list',compact('css_words'));
+    }
+
+    public function edit_cssList(Request $request) {
+        $CssWord = CssWord::find($request->id);
+        // dd($HtmlWord);
+        return view('management/css/edit_css', ['CssWord' => $CssWord]); 
+    }
+
+    public function update_cssList(Request $request)
+    {
+        $CssWord = CssWord::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $CssWord->fill($form)->save();
+        return redirect('/management/css/css_list');
     }
 
 }
