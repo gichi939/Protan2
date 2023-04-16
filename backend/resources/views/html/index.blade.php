@@ -77,13 +77,19 @@
                 <p>{{ $words[0]->html_meaning}}</p>
             </div>
     
-            <div class="prg-exm">
-                <p id="prg-more" class="prg-more"></p>
+            <div class="prg-howto">
+                <p id="prg-howto-more" class="prg-howto-more"></p>
             </div>
     
-            <div id="prg-hide">
+            <div id="howto-hide">
                 <p>{{ $words[0]->html_HowToUse }}</p>
             </div>
+
+            <div class="prg-exam">
+                <p id="prg-exam-more" class="prg-exam-more"></p>
+            </div>
+    
+            {{-- <p id="exam-hide">{{ $words[0]->html_example }}</p> 後で変更 --}}
         
         </div> 
     </div>
@@ -98,7 +104,8 @@
 
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1].html_name;
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].html_meaning;
-            document.getElementById('prg-hide').innerHTML = @json($words)[num - 1].html_HowToUse;
+            document.getElementById('howto-hide').innerHTML = @json($words)[num - 1].html_HowToUse;
+            // document.getElementById('exam-hide').innerHTML = @json($words)[num - 1].html_example; 後で変更
         }
     </script>
 
