@@ -17,6 +17,14 @@
     margin-bottom: 2rem;
 }
 
+.left_side {
+    margin-top: 80px;
+}
+
+.word-list {
+    margin-top: 30px;
+}
+
 .bookmark {
     width: 400px;
     margin: 0 auto;

@@ -18,7 +18,8 @@ class CreateCssWordsTable extends Migration
             $table->string('css_name');
             $table->string('css_meaning');
             $table->string('css_HowToUse');
-            $table->string('css_example');
+            $table->text('css_example');
+            $table->text('css_description');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class ManagementController extends Controller
         $HtmlWord->html_meaning = $request->html_meaning;
         $HtmlWord->html_HowToUse = $request->html_HowToUse;
         $HtmlWord->html_example = $request->html_example;
+        $HtmlWord->html_example = $request->html_description;
         
 
         $HtmlWord->save();
@@ -50,6 +51,12 @@ class ManagementController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $HtmlWord->fill($form)->save();
+        return redirect('/management/html_list');
+    }
+
+    public function destroy_htmlList(Request $request) {
+        $destroy = HtmlWord::find($request->id);
+        $destroy->delete();
         return redirect('/management/html_list');
     }
 

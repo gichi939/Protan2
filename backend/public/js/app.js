@@ -30195,7 +30195,7 @@ $(function () {
     if ($(like).hasClass('click')) {
       likeWordId = words.id;
     } else {
-      likeWordId = 1;
+      likeWordId = 2;
     } //ajax処理スタート
 
 

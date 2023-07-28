@@ -78,17 +78,33 @@
 #txt-hide{
     display: none;
     text-align: center;
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+.noun,
+.verb {
+    border: #000 1px solid;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.verb {
+    margin-left: 20px;
 }
 
 #howto-hide{
     display: none;
-    text-align: center;
+    text-align: left;
     position: relative;
-    bottom: 10px;
+    top: 5px;
 }
 
-#exam-hide{
+#exam-hide {
     display: none;
+}
+
+#exam-hideblock{
     background-color: #25292f;
     margin: 1em 0; /* ブロック前後の余白 */
   padding: 1em; /* ブロック内の余白 */
@@ -96,6 +112,11 @@
   background: #25292f; /* 背景色 */
   color: #fff; /* 文字色 */
   white-space: pre-wrap; /* はみ出たときに折り返す */
+}
+
+#description-hideblock {
+    white-space: pre-wrap;
+    margin-bottom: 50px;
 }
 
 p.more,

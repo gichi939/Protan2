@@ -39,6 +39,8 @@ Route::get('/management/html_list', 'ManagementController@display_htmlList')->na
 Route::get('/management/edit', 'ManagementController@edit_htmlList')->name('edit.htmlList');
 Route::post('/management/edit', 'ManagementController@update_htmlList')->name('update.htmlList');
 
+Route::post('/management/destroy', 'ManagementController@destroy_htmlList')->name('destroy.htmlList');
+
 Route::get('/management/css/index', 'ManagementController@add_css')->name('add.css');
 Route::post('/management/css/css_word', 'ManagementController@insert_css')->name('insert.css');
 
