@@ -3,16 +3,20 @@ const { ajax } = require("jquery");
 // リスト押下時バナーを閉じる
 $(".word").on("click", function () {
   $(".more").removeClass("on-click");
+  $(".prg-howto-more").removeClass("on-click");
+  $(".prg-exam-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
-  $(".prg-more").removeClass("on-click");
-  $("#prg-hide").slideUp(1);
+  $("#howto-hide").slideUp(1);
+  $("#exam-hide").slideUp(1);
 });
 
 $(".word-small").on("click", function () {
   $(".more").removeClass("on-click");
+  $(".prg-howto-more").removeClass("on-click");
+  $(".prg-exam-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
-  $(".prg-more").removeClass("on-click");
-  $("#prg-hide").slideUp(1);
+  $("#howto-hide").slideUp(1);
+  $("#exam-hide").slideUp(1);
 });
 
 
@@ -22,9 +26,15 @@ $(".more").on("click", function () {
   $("#txt-hide").slideToggle(1);
 });
 // プログラミングでの使い方を押した時
-$(".prg-more").on("click", function () {
-  $(".prg-more").toggleClass("on-click");
-  $("#prg-hide").slideToggle(1);
+$(".prg-howto-more").on("click", function () {
+  $(".prg-howto-more").toggleClass("on-click");
+  $("#howto-hide").slideToggle(1);
+});
+
+// プログラミングでの使用例を押した時
+$(".prg-exam-more").on("click", function () {
+  $(".prg-exam-more").toggleClass("on-click");
+  $("#exam-hide").slideToggle(1);
 });
 
 $(".word-select").on("click", function () {
@@ -53,7 +63,7 @@ $(function () {
     if ($(like).hasClass('click')) {
       likeWordId = words.id;
     } else {
-      likeWordId = 1;
+      likeWordId = 2;
     }
     //ajax処理スタート
     $.ajax({

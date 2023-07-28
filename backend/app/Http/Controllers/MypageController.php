@@ -15,7 +15,6 @@ use App\Facades\MypageFacades;
 class MypageController extends Controller
 {
     public function index() {
-        // $mypageServises = new MypageServises();
         return view('mypage/index', ['users' => MypageFacades::show()]);
     }
 
@@ -25,7 +24,7 @@ class MypageController extends Controller
         //htmlのbookmarkした単語
         $bookmarks = Bookmark::where('user_id', $user_id)->get();
         $html_db = HtmlWord::all();
-        $first_word = HtmlWord::find(1);
+        $first_word = HtmlWord::find(2);
 
         //cssのbookmarkした単語
         $css_bookmarks = CssBookmark::where('user_id', $user_id)->get();

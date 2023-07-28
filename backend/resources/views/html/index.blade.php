@@ -74,15 +74,24 @@
                 <p id="more" class="more"></p>
             </div>
             <div id="txt-hide">
-                <p>{{ $words[0]->html_meaning}}</p>
+                <p><span class="noun">名</span>頭部 <span class="verb">動</span>先導する</p>
             </div>
     
-            <div class="prg-exm">
-                <p id="prg-more" class="prg-more"></p>
+            <div class="prg-howto">
+                <p id="prg-howto-more" class="prg-howto-more"></p>
             </div>
     
-            <div id="prg-hide">
+            <div id="howto-hide">
                 <p>{{ $words[0]->html_HowToUse }}</p>
+            </div>
+
+            <div class="prg-exam">
+                <p id="prg-exam-more" class="prg-exam-more"></p>
+            </div>
+
+            <div id="exam-hide">
+                    <p id="exam-hideblock">{{ $words[0]->html_example }}</p>
+                    <p id="description-hideblock">{{ $words[0]->html_description }}</p>
             </div>
         
         </div> 
@@ -98,7 +107,9 @@
 
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1].html_name;
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].html_meaning;
-            document.getElementById('prg-hide').innerHTML = @json($words)[num - 1].html_HowToUse;
+            document.getElementById('howto-hide').textContent = @json($words)[num - 1].html_HowToUse;
+            document.getElementById('exam-hideblock').textContent = @json($words)[num - 1].html_example;
+            document.getElementById('description-hideblock').textContent = @json($words)[num - 1].html_description;
         }
     </script>
 

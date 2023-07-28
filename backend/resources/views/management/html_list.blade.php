@@ -10,6 +10,7 @@
                         <th>単語の意味</th>
                         <th>単語の使い方</th>
                         <th>htmlの例</th>
+                        <th>htmlの例の説明</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +20,14 @@
                             <td>{{ $html_word->html_meaning }}</td>
                             <td>{{ $html_word->html_HowToUse }}</td>
                             <td>{{ $html_word->html_example }}</td>
+                            <td>{{ $html_word->html_description }}</td>
                             <td><a href="{{ route('edit.htmlList', ['id' => $html_word->id]) }}">編集</a></td>
+                            <td>
+                                <form action="{{ route('destroy.htmlList', ['id'=>$html_word->id]) }}" method="POST" style="margin: 0">
+                                  @csrf
+                                  <button type="submit" style="margin: 0">削除</button>
+                                </form>
+                              </td>
                         </tr>
                     @endforeach
                 </tbody>

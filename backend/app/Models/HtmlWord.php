@@ -25,6 +25,6 @@ class HtmlWord extends Model
   }
 
   public function isLikedBy($user): bool {
-    return Bookmark::where('user_id', $user->id)->where('html_word_id', 1)->first() !==null;
+    return Bookmark::where('user_id', $user->id)->where('html_word_id', 2)->first() !== null;
   }
 }

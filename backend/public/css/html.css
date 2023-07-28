@@ -57,12 +57,14 @@
     border: solid;
 }
 .word-mean p,
-.prg-exm p {
+.prg-howto p,
+.prg-exam p {
     text-align: center;
     padding: 15px 0;
 }
 
-.prg-exm {
+.prg-howto,
+.prg-exam {
     margin-top: 50px;
 }
 
@@ -76,41 +78,56 @@
 #txt-hide{
     display: none;
     text-align: center;
+    margin-top: 50px;
+    font-size: 2rem;
 }
 
-#prg-hide{
+.noun,
+.verb {
+    border: #000 1px solid;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.verb {
+    margin-left: 20px;
+}
+
+#howto-hide{
     display: none;
-    text-align: center;
+    text-align: left;
     position: relative;
-    bottom: 10px;
+    top: 5px;
 }
 
-#example-hide{
+#exam-hide {
     display: none;
-    background-color: rgb(54, 69, 73);
 }
 
-p.more {
+#exam-hideblock{
+    background-color: #25292f;
+    margin: 1em 0; /* ブロック前後の余白 */
+  padding: 1em; /* ブロック内の余白 */
+  border-radius: 5px; /* 角丸 */
+  background: #25292f; /* 背景色 */
+  color: #fff; /* 文字色 */
+  white-space: pre-wrap; /* はみ出たときに折り返す */
+}
+
+#description-hideblock {
+    white-space: pre-wrap;
+    margin-bottom: 50px;
+}
+
+p.more,
+.prg-howto-more,
+.prg-exam-more {
     background-color: #001e43;
     color: #fff;
     transition: .1s;
     -erbkit-transition: .1s;
 }
 
-p.prg-more {
-    background-color: #001e43;
-    color: #fff;
-    transition: .1s;
-    -erbkit-transition: .1s;
-}
-
-p.prg-example {
-    background-color: #001e43;
-    color: #fff;
-    transition: .1s;
-    -erbkit-transition: .1s;
-}
-    
 p.more::after {
     content: "意味を見る";
     transition: .1s;
@@ -121,23 +138,23 @@ p.more.on-click::after{
     content: "閉じる";
 }
 
-p.prg-more::after {
+p.prg-howto-more::after {
     content: "プログラミングの使い方を見る";
     transition: .1s;
     -erbkit-transition: .1s;
 }
 
-p.prg-more.on-click::after{
+p.prg-howto-more.on-click::after{
     content: "閉じる";
 }
 
-p.prg-example::after {
+p.prg-exam-more::after {
     content: "例を見る";
     transition: .1s;
     -erbkit-transition: .1s;
 }
 
-p.prg-example.on-click::after{
+p.prg-exam-more.on-click::after{
     content: "閉じる";
 }
 pre code {
@@ -270,7 +287,7 @@ pre code {
         z-index: 1;
     }
 
-    .prg-exm {
+    .prg-howto {
         margin-top: 20px;
     }
 
