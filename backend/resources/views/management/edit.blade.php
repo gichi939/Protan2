@@ -29,19 +29,6 @@
                 <textarea name="html_HowToUse" value="{{ $HtmlWord->html_HowToUse }}" cols="60" rows="10">{{ $HtmlWord->html_HowToUse }}</textarea>
         </div>
 
-        <div class="html_form">
-            <label>
-                タグのプログラミングでの使用例
-            </label>
-                <textarea name="html_example" value="{{ $HtmlWord->html_example }}" cols="60" rows="10">{{ $HtmlWord->html_example }}</textarea>
-        </div>
-
-        <div class="html_form">
-            <label>
-                タグのプログラミングでの使用例の説明文
-            </label>
-                <textarea name="html_description" value="{{ $HtmlWord->html_description }}" cols="60" rows="10">{{ $HtmlWord->html_description }}</textarea>
-        </div>
         <input type="hidden" name="id" value="{{ $HtmlWord->id }}">
         <button type="submit">確定</button>
     </form>

@@ -26,19 +26,6 @@
                 <textarea name="html_HowToUse" id="" cols="60" rows="10"></textarea>
         </div>
 
-        <div class="html_form">
-            <label>
-                タグのプログラミングでの使用例
-            </label>
-                <textarea name="html_example" id="" cols="60" rows="10"></textarea>
-        </div>
-
-        <div class="html_form">
-            <label>
-                タグのプログラミングでの使用例の説明文
-            </label>
-                <textarea name="html_description" id="" cols="60" rows="10"></textarea>
-        </div>
         <button type="submit" class="insert_button">確定</button>
     </form>
 </div>

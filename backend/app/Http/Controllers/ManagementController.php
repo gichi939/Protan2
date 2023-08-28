@@ -24,9 +24,6 @@ class ManagementController extends Controller
         $HtmlWord->html_name = $request->html_name;
         $HtmlWord->html_meaning = $request->html_meaning;
         $HtmlWord->html_HowToUse = $request->html_HowToUse;
-        $HtmlWord->html_example = $request->html_example;
-        $HtmlWord->html_description = $request->html_description;
-        
 
         $HtmlWord->save();
 
@@ -72,10 +69,7 @@ class ManagementController extends Controller
         $CssWord = new CssWord;
         $CssWord->css_name = $request->css_name;
         $CssWord->css_meaning = $request->css_meaning;
-        $CssWord->css_HowToUse = $request->css_HowToUse;
-        $CssWord->css_example = $request->css_example;
-        $CssWord->css_description = $request->css_description;
-        
+        $CssWord->css_HowToUse = $request->css_HowToUse;        
 
         $CssWord->save();
 

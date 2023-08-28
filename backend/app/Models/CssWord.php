@@ -9,9 +9,7 @@ class CssWord extends Model
     protected $fillable = [
         'css_name',
         'css_meaning',
-        'css_HowToUse',
-        'css_example',
-        'css_description'
+        'css_HowToUse'
     ];
 
     public static $rules = array(

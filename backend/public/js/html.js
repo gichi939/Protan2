@@ -10993,18 +10993,14 @@ var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jqu
 $(".word").on("click", function () {
   $(".more").removeClass("on-click");
   $(".prg-howto-more").removeClass("on-click");
-  $(".prg-exam-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
   $("#howto-hide").slideUp(1);
-  $("#exam-hide").slideUp(1);
 });
 $(".word-small").on("click", function () {
   $(".more").removeClass("on-click");
   $(".prg-howto-more").removeClass("on-click");
-  $(".prg-exam-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
   $("#howto-hide").slideUp(1);
-  $("#exam-hide").slideUp(1);
 }); // 意味を見るを押した処理
 
 $(".more").on("click", function () {
@@ -11015,11 +11011,6 @@ $(".more").on("click", function () {
 $(".prg-howto-more").on("click", function () {
   $(".prg-howto-more").toggleClass("on-click");
   $("#howto-hide").slideToggle(1);
-}); // プログラミングでの使用例を押した時
-
-$(".prg-exam-more").on("click", function () {
-  $(".prg-exam-more").toggleClass("on-click");
-  $("#exam-hide").slideToggle(1);
 });
 $(".word-select").on("click", function () {
   $('.bookmark-icon').addClass('click');

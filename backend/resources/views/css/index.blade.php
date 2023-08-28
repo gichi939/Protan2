@@ -85,15 +85,6 @@
             <div id="howto-hide">
                 <p>{{ $words[0]->css_HowToUse }}</p>
             </div>
-
-            <div class="prg-exam">
-                <p id="prg-exam-more" class="prg-exam-more"></p>
-            </div>
-    
-            <div id="exam-hide">
-                    <p id="exam-hideblock">{{ $words[0]->css_example }}</p>
-                    <p id="description-hideblock">{{ $words[0]->css_description }}</p>
-            </div>
         
         </div> 
     </div>

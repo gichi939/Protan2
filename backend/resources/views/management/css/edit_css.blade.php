@@ -29,19 +29,6 @@
                 <textarea name="css_HowToUse" value="{{ $CssWord->css_HowToUse }}" cols="60" rows="10">{{ $CssWord->css_HowToUse }}</textarea>
         </div>
 
-        <div class="css_form">
-            <label>
-                タグのプログラミングでの使用例
-            </label>
-                <textarea name="css_example" value="{{ $CssWord->css_example }}" cols="60" rows="10">{{ $CssWord->css_example }}</textarea>
-        </div>
-        
-        <div class="css_form">
-            <label>
-                タグのプログラミングでの使用例の説明文
-            </label>
-                <textarea name="css_description" value="{{ $CssWord->css_description }}" cols="60" rows="10">{{ $CssWord->css_description }}</textarea>
-        </div>
         <input type="hidden" name="id" value="{{ $CssWord->id }}">
         <button type="submit">確定</button>
     </form>
