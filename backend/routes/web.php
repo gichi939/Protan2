@@ -58,7 +58,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/bookmark/like', 'BookmarkController@like')->name('html.like');
     Route::post('/bookmark/css_like', 'BookmarkController@css_like')->name('css.like');
 });
-Route::get('/management/html_list', 'HomeController@index')->name('search.index');
 
 Route::get('/admin/login', function () {
     return view('adminLogin'); // blade.php

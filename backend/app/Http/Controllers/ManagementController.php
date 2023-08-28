@@ -25,7 +25,7 @@ class ManagementController extends Controller
         $HtmlWord->html_meaning = $request->html_meaning;
         $HtmlWord->html_HowToUse = $request->html_HowToUse;
         $HtmlWord->html_example = $request->html_example;
-        $HtmlWord->html_example = $request->html_description;
+        $HtmlWord->html_description = $request->html_description;
         
 
         $HtmlWord->save();
@@ -36,6 +36,7 @@ class ManagementController extends Controller
     public function display_htmlList()
     {
         $html_words = HtmlWord::all();
+        // dd($html_words);
         return view('management/html_list',compact('html_words'));
     }
 
@@ -50,6 +51,7 @@ class ManagementController extends Controller
         $HtmlWord = HtmlWord::find($request->id);
         $form = $request->all();
         unset($form['_token']);
+        // dd($request->all());
         $HtmlWord->fill($form)->save();
         return redirect('/management/html_list');
     }
@@ -58,32 +60,6 @@ class ManagementController extends Controller
         $destroy = HtmlWord::find($request->id);
         $destroy->delete();
         return redirect('/management/html_list');
-    }
-
-    public function index(Request $request)
-    {
-        $html_words = HtmlWord::all();
-
-        $search = $request->input('search');
-
-        $query = HtmlWord::query();
-
-        if ($search) {
-
-            $spaceConversion = mb_convert_kana($search, 's');
-
-            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
-
-            foreach($wordArraySearched as $value) {
-                $query->where('html_name', 'like', '%'.$value.'%');
-            }
-            $html_words = $query->paginate(20);
-        }
-
-        return view('management/html_list')->with([
-            'html_words'=>$html_words, 
-            'search'=>$search,
-        ]);
     }
 
     public function add_css()
@@ -98,6 +74,7 @@ class ManagementController extends Controller
         $CssWord->css_meaning = $request->css_meaning;
         $CssWord->css_HowToUse = $request->css_HowToUse;
         $CssWord->css_example = $request->css_example;
+        $CssWord->css_description = $request->css_description;
         
 
         $CssWord->save();
@@ -113,7 +90,6 @@ class ManagementController extends Controller
 
     public function edit_cssList(Request $request) {
         $CssWord = CssWord::find($request->id);
-        // dd($HtmlWord);
         return view('management/css/edit_css', ['CssWord' => $CssWord]); 
     }
 

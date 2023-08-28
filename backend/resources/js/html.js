@@ -170,7 +170,7 @@ $(function () {
         for (let i = 0; i < bookmark_datas.length; i++) {
           var user_id = data_json['bookmark_all_datas'][i]['user_id'];
           var css_word_id = data_json['bookmark_all_datas'][i]['css_word_id'];
-          if (user_id == auth_id) {
+          if (user_id == auth_id) {  //ログインできてるか検証
             if (css_word_id == likeWordId) {
               $(css_like).addClass('liked');
             } else {

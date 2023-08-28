@@ -18,8 +18,6 @@ class CreateHtmlWordsTable extends Migration
             $table->string('html_name');
             $table->string('html_meaning');
             $table->string('html_HowToUse');
-            $table->text('html_example');
-            $table->text('html_description');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@
             <label>
                 cssのタグの意味
             </label>
-                <textarea name="css_meaning" value="{{ $CssWord->css_meaning }}" cols="60" rows="1">{{ $CssWord->css_meaning }}</textarea>
+                <textarea name="css_meaning" value="{{ $CssWord->css_meaning }}" cols="60" rows="5">{{ $CssWord->css_meaning }}</textarea>
         </div>
 
         <div class="css_form">
@@ -34,6 +34,13 @@
                 タグのプログラミングでの使用例
             </label>
                 <textarea name="css_example" value="{{ $CssWord->css_example }}" cols="60" rows="10">{{ $CssWord->css_example }}</textarea>
+        </div>
+        
+        <div class="css_form">
+            <label>
+                タグのプログラミングでの使用例の説明文
+            </label>
+                <textarea name="css_description" value="{{ $CssWord->css_description }}" cols="60" rows="10">{{ $CssWord->css_description }}</textarea>
         </div>
         <input type="hidden" name="id" value="{{ $CssWord->id }}">
         <button type="submit">確定</button>

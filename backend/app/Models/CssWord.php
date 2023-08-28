@@ -10,7 +10,8 @@ class CssWord extends Model
         'css_name',
         'css_meaning',
         'css_HowToUse',
-        'css_example'
+        'css_example',
+        'css_description'
     ];
 
     public static $rules = array(
@@ -25,6 +26,6 @@ class CssWord extends Model
 
     public function isLikedBy($user): bool
     {
-        return CssBookmark::where('user_id', $user->id)->where('css_word_id', 1)->first() !== null;
+        return CssBookmark::where('user_id', $user->id)->where('css_word_id', 15)->first() !== null;
     }
 }

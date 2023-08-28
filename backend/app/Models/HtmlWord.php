@@ -11,7 +11,8 @@ class HtmlWord extends Model
         'html_name',
         'html_meaning',
         'html_HowToUse',
-        'html_example'
+        'html_example',
+        'html_description'
     ];
 
     public static $rules = array(

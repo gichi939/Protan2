@@ -80,6 +80,7 @@
     text-align: center;
     margin-top: 50px;
     font-size: 2rem;
+    white-space: pre-wrap;
 }
 
 .noun,
