@@ -72,12 +72,28 @@
                                 </form>
 
                                 <li class="logout-button">
-                                    <a class="login_link" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
                                         <i class="fa-solid fa-lg fa-right-from-bracket"></i>
-                                    </a>
                                 </li>
+                                <div class="logout-popup">
+                                    <div class="popup-backgrond"></div>
+                                    <div class="popup-logout-body">
+                                        <div>
+                                            <div class="logout-sentence">
+                                                ログアウトしますか？
+                                            </div>
+                                            <div class="logout-bool">
+                                                <a class="login_link" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                    はい
+                                                </a>
+                                                <button class="close-button">
+                                                    いいえ
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     @else

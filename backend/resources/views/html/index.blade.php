@@ -73,9 +73,7 @@
             <div class="word-mean">
                 <p id="more" class="more"></p>
             </div>
-            <div id="txt-hide">
-                <p><span class="noun">名</span>頭部 <span class="verb">動</span>先導する</p>
-            </div>
+            <div id="txt-hide">HTMLはHypertext Markup Languageの略で日本語訳だと「複数の文書をつなげる方法を記述するための言語」となります。</div>
     
             <div class="prg-howto">
                 <p id="prg-howto-more" class="prg-howto-more"></p>
@@ -99,8 +97,6 @@
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1].html_name;
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].html_meaning;
             document.getElementById('howto-hide').textContent = @json($words)[num - 1].html_HowToUse;
-            document.getElementById('exam-hideblock').textContent = @json($words)[num - 1].html_example;
-            document.getElementById('description-hideblock').textContent = @json($words)[num - 1].html_description;
         }
     </script>
 

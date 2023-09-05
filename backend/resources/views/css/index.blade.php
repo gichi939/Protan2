@@ -74,9 +74,7 @@
                 <p id="more" class="more"></p>
             </div>
 
-            <div id="txt-hide">
-                <p>{{ $words[0]->css_meaning}}</p>
-            </div>
+            <div id="txt-hide"><span class="noun">名</span>幅</div>
 
             <div class="prg-howto">
                 <p id="prg-howto-more" class="prg-howto-more"></p>
@@ -99,8 +97,6 @@
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1].css_name;
             document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].css_meaning;
             document.getElementById('howto-hide').innerHTML = @json($words)[num - 1].css_HowToUse;
-            document.getElementById('exam-hideblock').textContent = @json($words)[num - 1].css_example;
-            document.getElementById('description-hideblock').textContent = @json($words)[num - 1].css_description;
         }
     </script>
 

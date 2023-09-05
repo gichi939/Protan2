@@ -49,7 +49,7 @@
 }
 
 .logout-button {
-    margin-top: 1rem;
+  margin: 1rem 1rem 0 2rem;
 }
 
 button {
@@ -193,4 +193,74 @@ nav .search-button {
   width: 33px;
   height: 33px;
   outline: none;
+}
+
+.logout-popup{
+  display: none;
+}
+
+.logout-popup.click {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-backgrond {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.6);
+  z-index: 3100;
+}
+
+.popup-logout-body {
+  width: 40%;
+  max-width: 572px;
+  padding: 32px;
+  background-color: #fff;
+  z-index: 3200;
+  border-radius: 10px;
+}
+
+.close-button {
+  outline: none !important;
+}
+
+.logout-popup-button {
+  cursor: pointer;
+}
+
+.fa-xmark {
+  font-size: 2.5rem;
+}
+
+.auth-link {
+  margin-top: 20px;
+}
+
+.logout-popup-link {
+  margin-right: 1rem;
+  font-weight: 900;
+  color: #001e43;
+}
+
+.logout-sentence {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logout-bool {
+  display: flex;
+  justify-content: space-around;
+}
+
+.login_link {
+  color: black;
 }

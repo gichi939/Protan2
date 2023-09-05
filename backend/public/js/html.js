@@ -11015,7 +11015,7 @@ $(".prg-howto-more").on("click", function () {
 $(".word-select").on("click", function () {
   $('.bookmark-icon').addClass('click');
 
-  if (words.name.length > 12) {
+  if (words.name.length > 11) {
     $('#edit_area').addClass('title-name-small');
   } else {
     $('#edit_area').removeClass('title-name-small');
@@ -11024,7 +11024,7 @@ $(".word-select").on("click", function () {
 $(".css-word-select").on("click", function () {
   $('.css-bookmark-icon').addClass('click');
 
-  if (words.name.length > 12) {
+  if (words.name.length > 10) {
     $('#edit_area').addClass('title-name-small');
   } else {
     $('#edit_area').removeClass('title-name-small');
@@ -11250,6 +11250,14 @@ $(".register-popup-button").on("click", function () {
 
 $(".close-button").on("click", function () {
   $('.register-popup').removeClass('click');
+}); // popupを表示
+
+$(".logout-button").on("click", function () {
+  $('.logout-popup').addClass('click');
+}); // popupを非表示
+
+$(".close-button").on("click", function () {
+  $('.logout-popup').removeClass('click');
 });
 $(function () {
   $("#save-word").onclick(function () {
