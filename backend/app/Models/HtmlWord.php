@@ -10,7 +10,9 @@ class HtmlWord extends Model
     protected $fillable = [
         'html_name',
         'html_meaning',
-        'html_HowToUse'
+        'html_HowToUse',
+        'words',
+        'words_mean'
     ];
 
     public static $rules = array(

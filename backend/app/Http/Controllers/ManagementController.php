@@ -23,6 +23,8 @@ class ManagementController extends Controller
         $HtmlWord = new HtmlWord;
         $HtmlWord->html_name = $request->html_name;
         $HtmlWord->html_meaning = $request->html_meaning;
+        $HtmlWord->words = $request->words;
+        $HtmlWord->words_mean = $request->words_mean;
         $HtmlWord->html_HowToUse = $request->html_HowToUse;
 
         $HtmlWord->save();

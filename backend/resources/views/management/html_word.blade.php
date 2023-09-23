@@ -21,11 +21,28 @@
 
         <div class="html_form">
             <label>
+                htmlの分割した単語名
+            </label>
+                <textarea name="words" id="" cols="60" rows="10"></textarea>
+        </div>
+
+        <div class="html_form">
+            <label>
+                htmlの分割した単語名の意味
+            </label>
+                <textarea name="words_mean" id="" cols="60" rows="10"></textarea>
+        </div>
+
+        <div class="html_form">
+            <label>
                 タグのプログラミングでの使い方
             </label>
                 <textarea name="html_HowToUse" id="" cols="60" rows="10"></textarea>
         </div>
 
+
+        <td>{{ $html_word->words }}</td>
+        <td>{{ $html_word->words_mean }}</td>
         <button type="submit" class="insert_button">確定</button>
     </form>
 </div>

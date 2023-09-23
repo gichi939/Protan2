@@ -30144,17 +30144,21 @@ $(".word").on("click", function () {
   $(".prg-howto-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
   $("#howto-hide").slideUp(1);
+  $("#second-split-hide").slideUp(1);
 });
 $(".word-small").on("click", function () {
   $(".more").removeClass("on-click");
   $(".prg-howto-more").removeClass("on-click");
   $("#txt-hide").slideUp(1);
   $("#howto-hide").slideUp(1);
+  $("#second-split-hide").slideUp(1);
 }); // 意味を見るを押した処理
 
 $(".more").on("click", function () {
   $(".more").toggleClass("on-click");
   $("#txt-hide").slideToggle(1);
+  $("#first-split-hide").slideUp(1);
+  $("#second-split-hide").slideUp(1);
 }); // プログラミングでの使い方を押した時
 
 $(".prg-howto-more").on("click", function () {
@@ -30163,6 +30167,7 @@ $(".prg-howto-more").on("click", function () {
 });
 $(".word-select").on("click", function () {
   $('.bookmark-icon').addClass('click');
+  $('.word-select').addClass('click');
 
   if (words.name.length > 11) {
     $('#edit_area').addClass('title-name-small');
@@ -30407,27 +30412,26 @@ $(".logout-button").on("click", function () {
 
 $(".close-button").on("click", function () {
   $('.logout-popup').removeClass('click');
-});
-$(function () {
-  $("#save-word").onclick(function () {
-    // value値を設定
-    var select_words = $("#save-word").val();
-    $.ajax({
-      headers: {
-        //HTTPヘッダ情報をヘッダ名と値のマップで記述
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
-      url: '/bookmark/css_switch',
-      //通信先アドレスで、このURLをあとでルートで設定します
-      method: 'POST' //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
-
-    }).done(function (data) {
-      if (selct_words = "html") {//
-      }
-    }).fail(function () {});
-  });
-});
+}); // $(function () {
+//   $("#save-word").onclick(function() {
+//     // value値を設定
+//     const select_words = $("#save-word").val();
+//     $.ajax({
+//       headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
+//         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+//       },  //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
+//       url: '/bookmark/css_switch', //通信先アドレスで、このURLをあとでルートで設定します
+//       method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
+//     })
+//     .done(function (data) {
+//       if (selct_words = "html") {
+//         //
+//       }
+//     })
+//     .fail(function () {
+//     })
+//   });
+// });
 
 /***/ }),
 

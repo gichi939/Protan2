@@ -24,6 +24,20 @@
 
         <div class="html_form">
             <label>
+                htmlの分割した単語名
+            </label>
+                <textarea name="words" value="{{ $HtmlWord->words }}" cols="60" rows="5">{{ $HtmlWord->words }}</textarea>
+        </div>
+
+        <div class="html_form">
+            <label>
+                htmlの分割した単語名の意味
+            </label>
+                <textarea name="words_mean" value="{{ $HtmlWord->words_mean }}" cols="60" rows="5">{{ $HtmlWord->words_mean }}</textarea>
+        </div>
+
+        <div class="html_form">
+            <label>
                 タグのプログラミングでの使い方
             </label>
                 <textarea name="html_HowToUse" value="{{ $HtmlWord->html_HowToUse }}" cols="60" rows="10">{{ $HtmlWord->html_HowToUse }}</textarea>

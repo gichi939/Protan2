@@ -8,6 +8,8 @@
                     <tr>
                         <th>単語の名前</th>
                         <th>単語の意味</th>
+                        <th>htmlの分割した単語名</th>
+                        <th>htmlの分割した単語名の意味</th>
                         <th>単語の使い方</th>
                     </tr>
                 </thead>
@@ -16,6 +18,8 @@
                         <tr>
                             <td>{{ $html_word->html_name }}</td>
                             <td>{{ $html_word->html_meaning }}</td>
+                            <td>{{ $html_word->words }}</td>
+                            <td>{{ $html_word->words_mean }}</td>
                             <td>{{ $html_word->html_HowToUse }}</td>
                             <td><a href="{{ route('edit.htmlList', ['id' => $html_word->id]) }}">編集</a></td>
                             <td>

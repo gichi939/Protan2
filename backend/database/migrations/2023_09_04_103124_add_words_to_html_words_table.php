@@ -15,6 +15,7 @@ class AddWordsToHtmlWordsTable extends Migration
     {
         Schema::table('html_words', function (Blueprint $table) {
             $table->string('words')->nullable();
+            $table->string('words_mean')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddWordsToHtmlWordsTable extends Migration
     {
         Schema::table('html_words', function (Blueprint $table) {
             $table->dropColumn('words');
+            $table->dropColumn('words_mean');
         });
     }
 }

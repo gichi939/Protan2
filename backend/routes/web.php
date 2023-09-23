@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +22,8 @@ Route::get('/modal', function () {
 });
 
 route::get('/html/index', 'HtmlController@show')->name('html.show');
+
+route::post('/html/split_word', 'HtmlController@split_word');
 
 route::get('/css/index', 'CssController@show')->name('css.show');
 
