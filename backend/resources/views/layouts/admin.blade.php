@@ -39,6 +39,8 @@
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
     {{-- fontawesomeの読み込み --}}
@@ -114,9 +116,33 @@
                             <li class="register-button">
                                 <a href="/register">新規登録</a>
                             </li>
+                        </ul>
+                    @endauth
 
-                        @endauth
-                    </ul>
+                    {{-- ハンバーガーメニュー --}}
+                    <div class="openbtn1"><span></span><span></span><span></span></div>
+
+                    <nav class="gNav">
+                        <ul class="gNav-menu">
+                            <li><a href="{{ route('html.show') }}">HTML</a></li>
+                            <li><a href="{{ route('css.show') }}">CSS</a></li>
+                            @auth
+                            <li><a href="{{ route('mypage.show') }}">マイページ</a></li>
+                            <li><a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    ログアウト
+                                </a></li>
+                            @else
+                            <li><a href="/login">ログイン</a></li>
+
+                            <li class="register-hm">
+                                <a href="/register">新規登録</a>
+                            </li>
+                            @endauth
+                        </ul>
+                    </nav>
+
                 </nav>
             </div>
         </div>

@@ -30438,7 +30438,12 @@ $(".close-button").on("click", function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+$(".openbtn1").on("click", function () {
+  $(this).toggleClass('active');
+});
+$('.openbtn1').on("click", function () {
+  $('.gNav').toggleClass('open'); // メニューにopenクラスをつけ外しする
+});
 
 /***/ }),
 
