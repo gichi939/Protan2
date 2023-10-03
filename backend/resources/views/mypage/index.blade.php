@@ -1,7 +1,12 @@
 @extends('layouts.admin')
 
 @section('styles')
+
+@if (config('app.env') === 'production')
+<link rel="stylesheet" href="{{ secure_asset('css/mypage.css') }}">
+@else
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+@endif
 @endsection
 
 @section('title', 'html_langage')
