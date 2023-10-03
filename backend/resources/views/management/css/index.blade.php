@@ -21,6 +21,20 @@
 
         <div class="css_form">
             <label>
+                cssの分割した単語名
+            </label>
+                <textarea name="css_words" id="" cols="60" rows="5"></textarea>
+        </div>
+
+        <div class="css_form">
+            <label>
+                cssの分割した単語名の意味
+            </label>
+                <textarea name="css_words_mean" id="" cols="60" rows="5"></textarea>
+        </div>
+
+        <div class="css_form">
+            <label>
                 タグのプログラミングでの使い方
             </label>
                 <textarea name="css_HowToUse" id="" cols="60" rows="10"></textarea>

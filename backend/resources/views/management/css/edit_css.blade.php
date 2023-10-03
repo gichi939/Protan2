@@ -24,6 +24,20 @@
 
         <div class="css_form">
             <label>
+                cssの分割した単語名
+            </label>
+                <textarea name="css_words" value="{{ $CssWord->css_words }}" cols="60" rows="5">{{ $CssWord->css_words }}</textarea>
+        </div>
+
+        <div class="css_form">
+            <label>
+                cssの分割した単語名の意味
+            </label>
+                <textarea name="css_words_mean" value="{{ $CssWord->css_words_mean }}" cols="60" rows="5">{{ $CssWord->css_words_mean }}</textarea>
+        </div>
+
+        <div class="css_form">
+            <label>
                 タグのプログラミングでの使い方
             </label>
                 <textarea name="css_HowToUse" value="{{ $CssWord->css_HowToUse }}" cols="60" rows="10">{{ $CssWord->css_HowToUse }}</textarea>
