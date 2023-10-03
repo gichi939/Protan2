@@ -59,7 +59,7 @@ $(function () {
     if ($(like).hasClass('click')) {
       likeWordId = words.id;
     } else {
-      likeWordId = 2;
+      likeWordId = 1;
     }
     //ajax処理スタート
     $.ajax({
@@ -116,9 +116,7 @@ $(function () {
       for (let i = 0; i < bookmark_datas.length; i++) {
         var user_id = data_json['bookmark_all_datas'][i]['user_id'];
         var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
-        function compareFunc(a, b) {
-          return a - b;
-        }
+
         if (user_id == auth_id) {
           if (html_word_id == words.id) {
             $('.bookmark-icon').addClass('liked');
@@ -291,6 +289,5 @@ $(function () {
   //     })
   //   });
   // });
-
 
 

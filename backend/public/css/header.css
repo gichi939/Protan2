@@ -262,5 +262,14 @@ nav .search-button {
 }
 
 .login_link {
-  color: black;
+  background-color: #001e43;
+  color: #fff;
+  padding: 10px 46.5px;
+}
+
+.close-button {
+  outline: none !important;
+  background-color: #001e43;
+  color: #fff;
+  padding: 10px 40px;
 }

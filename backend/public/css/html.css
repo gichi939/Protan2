@@ -241,10 +241,6 @@ pre code {
     justify-content: space-between;
 }
 
-.close-button {
-    outline: none !important;
-}
-
 .register-popup-button {
     cursor: pointer;
 }

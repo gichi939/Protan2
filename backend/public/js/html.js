@@ -11042,7 +11042,7 @@ $(function () {
     if ($(like).hasClass('click')) {
       likeWordId = words.id;
     } else {
-      likeWordId = 2;
+      likeWordId = 1;
     } //ajax処理スタート
 
 
@@ -11107,10 +11107,6 @@ $(function () {
       var auth_id = data_json['auth_id'];
 
       for (var i = 0; i < bookmark_datas.length; i++) {
-        var compareFunc = function compareFunc(a, b) {
-          return a - b;
-        };
-
         var user_id = data_json['bookmark_all_datas'][i]['user_id'];
         var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
 

@@ -26,8 +26,6 @@
                         $words_arr = "";
                     }
 
-                    
-
 
                     // if ($words_arr == "") {
                     //     echo(1);

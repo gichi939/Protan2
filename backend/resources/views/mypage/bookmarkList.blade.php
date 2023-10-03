@@ -16,21 +16,24 @@
         
         <!-- left side -->
         <div class="left_side">
-            <div class="save-word-select">
+
+        @if($bookmarks->isempty())
+            <p>データがありません</p>
+        @else
+            {{-- <div class="save-word-select"> htmlとcssの切り替えする用のボタン
                 <p>保存した単語</p>
                 <select id="save-word">
                     <option value="HTML">HTML</option>
                     <option value="CSS">CSS</option>
                 </select>
-            </div>
+            </div> --}}
             <div class="word-list">
                 @for ($i = 1; $i <= count($bookmarks); $i++)
                 <div class="word-select">
                     @php
-                        $bookmark_id = $bookmarks[$i - 1]->html_word_id;
-                        // $bookmark_css_id = $css_bookmarks[$i - 1]->css_word_id;
+                        $bookmark_id = $bookmarks[$i-1]->html_word_id;
                         if ($html_db[$i - 1]->id = $bookmark_id) {
-                            $html_name = $html_db[$bookmark_id - 2]->html_name;
+                            $html_name = $html_db[$bookmark_id - 1]->html_name;
                             $html_meaning = $html_db[$bookmark_id - 1]->html_meaning;
                             $html_HowToUse = $html_db[$bookmark_id - 1]->html_HowToUse;
 
@@ -40,7 +43,6 @@
                         }
                     @endphp
                     
-
                     @if(mb_strlen($html_name) < 19)
                     <li class="word" onclick="menuButton(this, @json($bookmark_id))"><span class=number>{{ $i }}</span>{{ $html_name }}</li>
                     
@@ -58,10 +60,10 @@
         <div class="main-word-area col-lg-8 col-sm-12 offset-sm-1">
 
             <div class="main-word">
-                <p class=title-name id="edit_area">{{ $html_db[0]->html_name }}</p>
+                <p class=title-name id="edit_area">{{ $html_db[$bookmark_id-1]->html_name }}</p>
             </div>
             
-            @if ($first_word->isLikedBy(Auth::user()))
+            @if ($html_db[$bookmark_id-1]->isMypageLikedBy(Auth::user(), $html_db[$bookmark_id-1]->id))
             <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
             @else
             <i class="fa-regular fa-bookmark bookmark-icon"></i>
@@ -70,25 +72,14 @@
             <div class="word-mean">
                 <p id="more" class="more"></p>
             </div>
-            <div id="txt-hide">
-                <p><span class="noun">名</span>頭部 <span class="verb">動</span>先導する</p>
-            </div>
+            <div id="txt-hide">{{ $html_db[$bookmark_id-1]->html_meaning }}</div>
     
             <div class="prg-howto">
                 <p id="prg-howto-more" class="prg-howto-more"></p>
             </div>
     
             <div id="howto-hide">
-                <p>{{ $words[0]->html_HowToUse }}</p>
-            </div>
-
-            <div class="prg-exam">
-                <p id="prg-exam-more" class="prg-exam-more"></p>
-            </div>
-
-            <div id="exam-hide">
-                    <p id="exam-hideblock">{{ $words[0]->html_example }}</p>
-                    <p id="description-hideblock">{{ $words[0]->html_description }}</p>
+                <p>{{ $html_db[$bookmark_id-1]->html_HowToUse }}</p>
             </div>
                 
             {{-- css --}}
@@ -118,20 +109,19 @@
                 <p>{{ $css_db[0]->css_HowToUse }}</p>
             </div> --}}
         </div> 
+        @endif
     </div>
 
     <script>
 
         function menuButton(element, num) {
             window.words = {};
-            window.words.name = @json($words)[num - 1].html_name;
-            window.words.id = @json($words)[num - 1].id;
+            window.words.name = @json($html_db)[num - 1].html_name;
+            window.words.id = @json($html_db)[num - 1].id;
 
-            document.getElementById('edit_area').innerHTML = @json($words)[num - 1].html_name;
-            document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].html_meaning;
-            document.getElementById('howto-hide').textContent = @json($words)[num - 1].html_HowToUse;
-            document.getElementById('exam-hideblock').textContent = @json($words)[num - 1].html_example;
-            document.getElementById('description-hideblock').textContent = @json($words)[num - 1].html_description;
+            document.getElementById('edit_area').innerHTML = @json($html_db)[num-1].html_name;
+            document.getElementById('txt-hide').innerHTML = @json($html_db)[num-1].html_meaning;
+            document.getElementById('howto-hide').textContent = @json($html_db)[num-1].html_HowToUse;
         }
     </script>
 
