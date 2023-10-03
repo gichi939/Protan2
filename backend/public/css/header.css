@@ -273,3 +273,19 @@ nav .search-button {
   color: #fff;
   padding: 10px 40px;
 }
+
+
+.word-course {
+  display: flex;
+  list-style: none;
+  margin: auto 0;
+}
+
+.word-course li {
+  margin-right: 20px;
+  font-size: large;
+}
+
+.word-item a {
+  color: #fff;
+}

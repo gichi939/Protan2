@@ -59,6 +59,15 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
+                    <ul class="word-course">
+                        <li class="word-item">
+                            <a href="{{ route('html.show') }}">HTML</a>
+                        </li>
+                        <li class="word-item">
+                            <a href="{{ route('css.show') }}">CSS</a>
+                        </li>
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     @auth
                         <div style="margin: 0 0 0 auto">
