@@ -30136,7 +30136,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports, __webpack_require__) {
 
 var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
-    ajax = _require.ajax; // リスト押下時バナーを閉じる
+    ajax = _require.ajax;
+
+var _require2 = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+    words = _require2.words; // リスト押下時バナーを閉じる
 
 
 $(".word").on("click", function () {
@@ -30183,7 +30186,12 @@ $(".css-word-select").on("click", function () {
   } else {
     $('#edit_area').removeClass('title-name-small');
   }
-});
+}); // $(".left-ele").on("click", function () {
+//   if(exists(words.name)) {
+//     words.name = 1;
+//   }
+// });
+
 $(function () {
   var like = $('.bookmark-icon');
   var likeWordId;
@@ -30398,7 +30406,7 @@ $(".register-popup-button").on("click", function () {
   $('.register-popup').addClass('click');
 }); // popupを非表示
 
-$(".close-button").on("click", function () {
+$(".logout-button").on("click", function () {
   $('.register-popup').removeClass('click');
 }); // popupを表示
 
@@ -30406,7 +30414,7 @@ $(".logout-button").on("click", function () {
   $('.logout-popup').addClass('click');
 }); // popupを非表示
 
-$(".close-button").on("click", function () {
+$(".logout-button").on("click", function () {
   $('.logout-popup').removeClass('click');
 }); // $(function () {
 //   $("#save-word").onclick(function() {

@@ -14,7 +14,6 @@
 
 
 <div class="container">
-
     <div class="row">
 
         <!-- left side -->
@@ -74,20 +73,31 @@
         <!-- center -->
         <div class="main-word-area col-lg-8 col-sm-12 offset-sm-1">
 
-            <div class="main-word">
-                <p class=title-name id="edit_area">{{ $words[0]->html_name}}</p>
-            </div>
+                <div class="main-word" onclick="changeword()">
+                    {{-- <i class="fa-solid fa-circle-chevron-left left-ele" onclick="switchWordleft()"></i> --}}
 
-            @auth
-                @if ($first_word->isLikedBy(Auth::user()))
-                    <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
+                    <p class=title-name id="edit_area">{{ $words[0]->html_name}}</p>
+
+                    {{-- <i class="fa-solid fa-circle-chevron-right right-ele" onclick="switchWordright()"></i> --}}
+
+                    @auth
+                    @if ($first_word->isLikedBy(Auth::user()))
+                    <span>
+                        <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
+                    </span>
                 @else
+                <span>
                     <i class="fa-regular fa-bookmark bookmark-icon"></i>
+                </span>
                 @endif
-            @else
-                <div>
+                @else
+                <span>
                     <i class="fa-regular fa-bookmark bookmark-icon register-popup-button"></i>
+                </span>
                 </div>
+                
+
+
                 <div class="register-popup">
                     <div class="popup-backgrond"></div>
                     <div class="popup-body">
@@ -95,7 +105,7 @@
                             <div>
                                 新規登録することで単語を保存できて、学習しやすくなります。
                             </div>
-                            <button class="close-button">
+                            <button class="logout-button">
                                 <i class="fa-solid fa-xmark close"></i>
                             </button>
                         </div>
@@ -110,7 +120,7 @@
                     </div>
                 </div>
             @endauth
-
+{{-- 
             <div class="word-mean">
                 <p id="more" class="more"></p>
             </div>
@@ -124,7 +134,7 @@
     
             <div id="howto-hide">
                 <p>{{ $words[0]->html_HowToUse }}</p>
-            </div>
+            </div> --}}
 
         </div>
     </div>
@@ -134,36 +144,51 @@
 
         function menuButton(element, num, words_arr) {
             window.words = {};
-            window.words.name = @json($words)[num - 1].html_name;
-            window.words.id = @json($words)[num - 1].id;
 
-            // console.log(@json($words)[num - 1]);
-            // console.log(words[1]);
+            window.words.id = @json($words)[num].id;
+            wordId = num; //switchWordで使用するため
 
-            // if (words === null) {
-            //     console.log('1');
-            // } else {
-            //     console.log('2');
-            // }
+            if (document.getElementById('edit_area').classList.contains('clicked')) {
+                document.getElementById('edit_area').classList.remove('clicked');
+            };
 
             document.getElementById('edit_area').innerHTML = @json($words)[num - 1].html_name;
-            document.getElementById('txt-hide').innerHTML = @json($words)[num - 1].html_meaning;
-            document.getElementById('howto-hide').textContent = @json($words)[num - 1].html_HowToUse;
-            document.getElementById('txt-hide').insertAdjacentHTML('beforeend', '<p class="first-split-word">'+words_arr[0][0]+'</p>');
-            document.getElementById('txt-hide').insertAdjacentHTML('beforeend', '<p id="first-split-hide">'+words_arr[1][0]+'</p>');
-            document.getElementById('txt-hide').insertAdjacentHTML('beforeend', '<p class="second-split-word">'+words_arr[0][1]+'</p>');
-            document.getElementById('second-split-hide').innerHTML = words_arr[1][1];
+        }
 
-            // 意味を見るを押下時に出てくるボタンを押した時
-            $(".first-split-word").on("click", function () {
-                $(".first-split-word").toggleClass("on-click");
-                $("#first-split-hide").slideToggle(1);
-            });
+        function changeword() {
+            let edit_area = document.getElementById('edit_area');
+            if (!edit_area.classList.contains('clicked')) {
+                edit_area.classList.add('clicked');
+                edit_area.innerHTML = @json($words)[wordId - 1].html_meaning;
+            } else {
+                edit_area.classList.remove('clicked');
+                edit_area.innerHTML = @json($words)[wordId - 1].html_name;
+            };
+            
+        }
 
-            $(".second-split-word").on("click", function () {
-                $(".second-split-word").toggleClass("on-click");
-                $("#second-split-hide").slideToggle(1);
-            });
+        resetRightNum = 0
+        resetLeftNum = 0
+        leftResultNum = 0
+        rightResultNum = 0
+        wordId = 1
+
+        function switchWordleft () {
+            if (wordId <= 1) {
+                document.getElementById('edit_area').innerHTML = @json($words)[0].html_name;
+            } else {
+                wordId = wordId - 1
+                document.getElementById('edit_area').innerHTML = @json($words)[wordId - 1].html_name;
+            }
+        }
+        
+        function switchWordright () {
+            if (wordId >= 35) {
+                document.getElementById('edit_area').innerHTML = @json($words)[34].html_name;
+            } else {
+                wordId = wordId + 1
+                document.getElementById('edit_area').innerHTML = @json($words)[wordId - 1].html_name;
+            }
         }
 
     </script>

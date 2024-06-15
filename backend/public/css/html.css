@@ -1,10 +1,11 @@
 .word-list {
     background-color: #001e43;
     width: 230px;
-    height: 700px;
+    height: 670px;
     overflow: scroll;
     margin-top: 80px;
     border: 10px solid;
+    border-radius: 10px;
 }
 
 .word-list::-webkit-scrollbar {
@@ -34,6 +35,8 @@
 
 .main-word-area {
     margin-top: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .title-name {
@@ -42,9 +45,36 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.left-ele {
+    padding: 240px 85px 30px 190px;
+    position: absolute;
+    right: 320px;
+    bottom: 185px;
+    font-size: 30px;
+    opacity: 0.6;
+}
+
+.right-ele {
+    padding: 240px 190px 30px 85px;
+    position: absolute;
+    left: 320px;
+    bottom: 185px;
+    font-size: 30px;
+    opacity: 0.6;
+}
+
+
+.clicked {
+    font-size: 3rem;
+}
+
 .title-name-small {
     margin: 0;
     font-size: 4.5rem;
+}
+
+.small-mainword {
+    font-size: 10px;
 }
 
 .main-word {
@@ -55,6 +85,8 @@
     align-items: center;
     height: 300px;
     border: solid;
+    border-radius: 30px;
+    width: 610px
 }
 .word-mean p,
 .prg-howto p,
@@ -186,9 +218,9 @@ pre code {
 
 .bookmark-icon,
 .css-bookmark-icon {
-    position: relative;
-    left: 650px;
-    bottom: 60px;
+    position: absolute;
+    bottom: 210px;
+    left: 530px;
     font-size: 50px;
     z-index: 1;
 }
@@ -243,6 +275,11 @@ pre code {
 
 .register-popup-button {
     cursor: pointer;
+    position: absolute;
+    bottom: 230px;
+    left: 530px;
+    font-size: 50px;
+    z-index: 1;
 }
 
 .fa-xmark {
@@ -262,9 +299,9 @@ pre code {
 
 @media (max-width: 1200px) {
     .bookmark-icon {
-        position: relative;
-        left: 540px;
-        bottom: 60px;
+        position: absolute;
+        bottom: 210px;
+        left: 530px;
         font-size: 50px;
         z-index: 1;
     }
@@ -294,9 +331,9 @@ pre code {
 
     .bookmark-icon,
     .css-bookmark-icon {
-        position: relative;
-        left: 290px;
-        bottom: 40px;
+        position: absolute;
+        bottom: 230px;
+        left: 530px;
         font-size: 30px;
         z-index: 1;
     }

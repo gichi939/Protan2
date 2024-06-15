@@ -229,7 +229,7 @@ nav .search-button {
   border-radius: 10px;
 }
 
-.close-button {
+.logout-button {
   outline: none !important;
 }
 
@@ -296,9 +296,10 @@ nav .search-button {
 追従するナビゲーションの場合はfixed＋top、rightといった位置をセットで指定*/
 	position: relative;
 	cursor: pointer;
-    width: 50px;
-    height:50px;
+  width: 50px;
+  height:50px;
 	border-radius: 5px;
+  margin-right: -20px;
 }
 
 /*ボタン内側*/
