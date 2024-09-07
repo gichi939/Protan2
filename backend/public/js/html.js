@@ -28314,12 +28314,23 @@ $(".css-word-select").on("click", function () {
   } else {
     $('#edit_area').removeClass('title-name-small');
   }
-}); // $(".left-ele").on("click", function () {
-//   if(exists(words.name)) {
-//     words.name = 1;
-//   }
-// });
-
+});
+$(function () {
+  $(".left-ele").hover(function () {
+    $(".left-ele").css('background', 'gray');
+    $(".left-ele").css('border-radius', '30px 0 0 30px');
+  }, function () {
+    $(".left-ele").css('background', '#f9fbfe');
+  });
+});
+$(function () {
+  $(".right-ele").hover(function () {
+    $(".right-ele").css('background', 'gray');
+    $(".right-ele").css('border-radius', '0 30px 30px 0');
+  }, function () {
+    $(".right-ele").css('background', '#f9fbfe');
+  });
+});
 $(function () {
   var like = $('.bookmark-icon');
   var likeWordId;
@@ -28544,26 +28555,7 @@ $(".logout-button").on("click", function () {
 
 $(".logout-button").on("click", function () {
   $('.logout-popup').removeClass('click');
-}); // $(function () {
-//   $("#save-word").onclick(function() {
-//     // value値を設定
-//     const select_words = $("#save-word").val();
-//     $.ajax({
-//       headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
-//         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-//       },  //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
-//       url: '/bookmark/css_switch', //通信先アドレスで、このURLをあとでルートで設定します
-//       method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
-//     })
-//     .done(function (data) {
-//       if (selct_words = "html") {
-//         //
-//       }
-//     })
-//     .fail(function () {
-//     })
-//   });
-// });
+});
 
 /***/ }),
 

@@ -33,6 +33,10 @@
     font-size: 12px;
 }
 
+.small-main-word {
+    font-size: 1rem;
+}
+
 .main-word-area {
     margin-top: 80px;
     display: flex;
@@ -46,23 +50,29 @@
 }
 
 .left-ele {
-    padding: 240px 85px 30px 190px;
+    padding: 35px 85px 35px 190px;
     position: absolute;
-    right: 320px;
-    bottom: 185px;
+    bottom: 85px;
     font-size: 30px;
     opacity: 0.6;
 }
 
 .right-ele {
-    padding: 240px 190px 30px 85px;
+    padding: 35px 190px 35px 85px;
     position: absolute;
     left: 320px;
-    bottom: 185px;
+    bottom: 85px;
     font-size: 30px;
     opacity: 0.6;
 }
 
+.icon-space {
+    width: 100px;
+    height: 100px;
+    border: #000;
+    border-radius: 10px;
+    background-color: black;
+}
 
 .clicked {
     font-size: 3rem;
