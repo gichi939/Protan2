@@ -31,15 +31,17 @@
 
                         $htmlword = $words[$i]->html_name;
                     @endphp
-                    <div class="word-select">
+                    <div class="word-select" id="test" data-name="{{ $i }}">
                         @if (mb_strlen($htmlword) < 19)
                             <li class="word" id="wordNumber{{ $i + 1 }}"
                                 onclick="menuButton(this, @json($i))"><span
-                                    class=number>{{ $i + 1 }}</span>{{ $htmlword }}</li>
+                                    class=number>{{ $i + 1 }}</span>{{ $htmlword }}
+                            </li>
                         @else
                             <li class="word-small" id="wordNumber{{ $i + 1 }}"
                                 onclick='menuButton(this, @json($i), @json($words_arr))'><span
-                                    class=number>{{ $i + 1 }}</span>{{ $htmlword }}</li>
+                                    class=number>{{ $i + 1 }}</span>{{ $htmlword }}
+                            </li>
                         @endif
                     </div>
                 @endfor
@@ -51,21 +53,26 @@
                 <div class="main-word" onclick="changeword()">
                     <p class=title-name id="edit_area">{{ $words[0]->html_name }}</p>
 
-                    @auth
-                        @if ($first_word->isLikedBy(Auth::user()))
-                            <span>
-                                <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
-                            </span>
-                        @else
-                            <span>
-                                <i class="fa-regular fa-bookmark bookmark-icon"></i>
-                            </span>
-                        @endif
+                </div>
+                @auth
+                    @if ($first_word->isLikedBy(Auth::user()))
+                        <span>
+                            <i class="fa-regular fa-bookmark bookmark-icon liked"></i>
+                        </span>
                     @else
                         <span>
-                            <i class="fa-regular fa-bookmark bookmark-icon register-popup-button"></i>
+                            <i class="fa-regular fa-bookmark bookmark-icon"></i>
                         </span>
-                    </div>
+                    @endif
+                    <i class="fa-solid fa-circle-chevron-left left-ele" onclick="switchWordleft()"></i>
+
+                    <i class="fa-solid fa-circle-chevron-right right-ele" onclick="switchWordright()"></i>
+
+                    @else
+
+                    <span>
+                        <i class="fa-regular fa-bookmark bookmark-icon register-popup-button"></i>
+                    </span>
 
                     <i class="fa-solid fa-circle-chevron-left left-ele" onclick="switchWordleft()"></i>
 
@@ -118,12 +125,13 @@
         <script>
             let edit_area = document.getElementById('edit_area');
 
+            
             function menuButton(element, num, words_arr) {
-                window.words = {};
-
-                word_name = @json($words)[num].html_name;
-                window.words.id = @json($words)[num].id;
-                wordId = num; //switchWordで使用するため
+                    window.eng_words = {};
+                    window.eng_words.id = @json($words)[num].id;
+                    word_name = @json($words)[num].html_name;
+                    wordId = num; //switchWordで使用するため
+                    
 
                 if (edit_area.classList.contains('clicked')) {
                     edit_area.classList.remove('clicked');

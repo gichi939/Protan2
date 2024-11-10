@@ -77,26 +77,28 @@ $(function () {
   )
 });
 
+
 $(function () {
   let like = $('.bookmark-icon');
   let likeWordId;
 
   like.on('click', function () {
     if ($(like).hasClass('click')) {
-      likeWordId = words.id;
+      likeWordId = wordId;
     } else {
       likeWordId = 1;
     }
     //ajax処理スタート
     $.ajax({
-      headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
+      headers: {
         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-      },  //↑name属性がcsrf-tokenのmetaタグのcontent属性の値を取得
-      url: '/bookmark/like', //通信先アドレスで、このURLをあとでルートで設定します
-      method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
-      data: { //サーバーに送信するデータ
-        'word_id': likeWordId //いいねされた投稿のidを送る
       },
+      url: '/bookmark/like',
+      method: 'POST',
+      data: {
+        'word_id': likeWordId
+      },
+      dataType: "json",
     })
     //通信成功した時の処理
     .done(function (data) {
@@ -107,14 +109,15 @@ $(function () {
       for (let i = 0; i < bookmark_datas.length; i++) {
         var user_id = data_json['bookmark_all_datas'][i]['user_id'];
         var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
-        if (user_id == auth_id) {
-          if (html_word_id == likeWordId) {
-            $(like).addClass('liked');
-          } else {
-            if ($(like).hasClass('liked')) {
-              $(like).removeClass('liked');
-            }
-          }
+      }
+      if (user_id == auth_id) {
+        console.log("1")
+        if (!$(like).hasClass('liked')) {
+          console.log("2")
+          $(like).addClass('liked');
+        } else {
+            console.log("3")
+            $(like).removeClass('liked');
         }
       }
     })
@@ -127,6 +130,8 @@ $(function () {
 
   $(function () {
     $(".word-select").on("click", function () {
+      // const word_id = $('#test').data();
+      // console.log(word_id);
       $.ajax({
         headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
           'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -142,10 +147,11 @@ $(function () {
       for (let i = 0; i < bookmark_datas.length; i++) {
         var user_id = data_json['bookmark_all_datas'][i]['user_id'];
         var html_word_id = data_json['bookmark_all_datas'][i]['html_word_id'];
-
+        console.log(eng_words.id);
         if (user_id == auth_id) {
-          if (html_word_id == words.id) {
+          if (html_word_id == eng_words.id) {
             $('.bookmark-icon').addClass('liked');
+            console.log("done");
             break;
           } else {
             $('.bookmark-icon').removeClass('liked');

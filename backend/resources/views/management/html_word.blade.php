@@ -41,8 +41,6 @@
         </div>
 
 
-        <td>{{ $html_word->words }}</td>
-        <td>{{ $html_word->words_mean }}</td>
         <button type="submit" class="insert_button">確定</button>
     </form>
 </div>

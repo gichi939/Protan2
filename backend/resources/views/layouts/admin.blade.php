@@ -83,13 +83,18 @@
                                     <a href="{{ route('mypage.show') }}"><i class="fa-solid fa-lg fa-user"></i></a>
                                 </li>
 
+                                
+                                <a href={{ route('logout') }} onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <li class="logout-button">
+                                        <i class="fa-solid fa-lg fa-right-from-bracket"></i>
+                                    </li>
+                                </a>
+                                
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-
-                                <li class="logout-button">
-                                        <i class="fa-solid fa-lg fa-right-from-bracket"></i>
-                                </li>
+                                
                                 <div class="logout-popup">
                                     <div class="popup-backgrond"></div>
                                     <div class="popup-logout-body">
